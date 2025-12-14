@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Generated Data & Models
+*.npz
+*.npy
+*.pt
+*.parquet
+processed_data.npz
+best_model_simple.pt
+clinical_embeddings.npy
+clinical_notes_raw.parquet
+multimodal_data.npz
+best_multimodal_model.pt
+
+# Logs & Outputs
+logs/
+*.log
+training_curves.png
+multimodal_training_curves.png
+results.json
+multimodal_results.json
+
+# Generated CSV (keep only source data)
+clinical_features.csv
+
+# Database
+*.db
+mimic_iv.db
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+# .ipynb_checkpoints/
+# *.ipynb
+
+# Temporary Files
+*.tmp
+*.bak
+*.backup
+
+# Cache
+.cache/
+.pytest_cache/
+
+# Config Secrets (if any)
+.env
+.env.local
+secrets.json
