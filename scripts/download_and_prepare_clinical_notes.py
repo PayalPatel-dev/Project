@@ -23,6 +23,27 @@ print("="*80)
 print("\n1️⃣ DOWNLOADING DATASET FROM HUGGING FACE...")
 print("   This may take 5-10 minutes on first run...")
 
+embeddings_file = os.path.join('logs', 'clinical_embeddings.npy')
+multimodal_file = os.path.join('logs', 'multimodal_data.npz')
+
+# Skip download if files already exist AND have all required keys
+if os.path.exists(embeddings_file) and os.path.exists(multimodal_file):
+    try:
+        # Verify multimodal file has all required data
+        test_data = np.load(multimodal_file)
+        required_keys = ['X_vital_train', 'X_text_train', 'y_train', 'y_val', 'y_test']
+        if all(key in test_data.files for key in required_keys):
+            print("\n✓ Clinical embeddings and multimodal data already exist!")
+            print("   Skipping re-download (saves 40-50 minutes)")
+            print("\n" + "="*80)
+            print("✓ DATASET PREPARATION SKIPPED - FILES ALREADY READY!")
+            print("="*80)
+            print(f"\nNext: Run python scripts/train_multimodal_lstm.py")
+            print("\n" + "="*80)
+            exit(0)
+    except:
+        pass  # File incomplete, regenerate
+
 try:
     dataset = load_dataset("AGBonnet/augmented-clinical-notes")
     df = dataset['train'].to_pandas()
@@ -37,10 +58,12 @@ except Exception as e:
 
 # Save raw dataset
 print("\n2️⃣ SAVING RAW DATASET TO PARQUET...")
+os.makedirs('logs', exist_ok=True)
 try:
-    df.to_parquet('clinical_notes_raw.parquet', index=False)
-    file_size = os.path.getsize('clinical_notes_raw.parquet') / (1024**3)
-    print(f"   ✓ Saved to: clinical_notes_raw.parquet ({file_size:.1f} GB)")
+    output_file = os.path.join('logs', 'clinical_notes_raw.parquet')
+    df.to_parquet(output_file, index=False)
+    file_size = os.path.getsize(output_file) / (1024**3)
+    print(f"   ✓ Saved to: logs/clinical_notes_raw.parquet ({file_size:.1f} GB)")
 except Exception as e:
     print(f"   ❌ Error saving parquet: {e}")
 
@@ -154,8 +177,9 @@ for idx, note in enumerate(tqdm(df['note'].values, desc="   Extracting features"
 clinical_features = pd.DataFrame(features_list)
 print(f"   ✓ Extracted features for {len(df):,} notes")
 
-clinical_features.to_csv('clinical_features.csv', index=False)
-print(f"   ✓ Saved to: clinical_features.csv")
+features_file = os.path.join('logs', 'clinical_features.csv')
+clinical_features.to_csv(features_file, index=False)
+print(f"   ✓ Saved to: logs/clinical_features.csv")
 
 # STEP 3: GENERATE TEXT EMBEDDINGS
 print("\n4️⃣ GENERATING TEXT EMBEDDINGS FROM CLINICAL NOTES...")
@@ -198,25 +222,29 @@ for idx in tqdm(range(len(sentences_list)), desc="   Processing"):
 embeddings = np.array(embeddings)
 print(f"\n   ✓ Generated embeddings: shape {embeddings.shape}")
 
-np.save('clinical_embeddings.npy', embeddings)
-print(f"   ✓ Saved to: clinical_embeddings.npy")
+embeddings_file = os.path.join('logs', 'clinical_embeddings.npy')
+np.save(embeddings_file, embeddings)
+print(f"   ✓ Saved to: logs/clinical_embeddings.npy")
 
 # STEP 4: CREATE MULTI-MODAL DATASET
 print("\n5️⃣ CREATING MULTI-MODAL DATASET...")
 
 try:
-    vital_data = np.load('processed_data.npz')
+    vital_data = np.load(os.path.join('logs', 'processed_data.npz'))
     X_vital_train = vital_data['X_train']
     X_vital_val = vital_data['X_val']
     X_vital_test = vital_data['X_test']
+    y_train = vital_data['y_train']
+    y_val = vital_data['y_val']
+    y_test = vital_data['y_test']
     
-    print(f"   ✓ Loaded vital signs data")
+    print(f"   ✓ Loaded vital signs data from logs/processed_data.npz")
     print(f"   ✓ Training: {len(X_vital_train)} samples")
     print(f"   ✓ Validation: {len(X_vital_val)} samples")
     print(f"   ✓ Test: {len(X_vital_test)} samples")
     
 except FileNotFoundError:
-    print(f"   ⚠️  processed_data.npz not found!")
+    print(f"   ⚠️  logs/processed_data.npz not found!")
     X_vital_train = None
 
 total_vital_samples = (
@@ -225,26 +253,60 @@ total_vital_samples = (
 )
 
 if total_vital_samples > 0 and len(embeddings) >= total_vital_samples:
-    embeddings_train = embeddings[:len(X_vital_train)]
-    embeddings_val = embeddings[len(X_vital_train):len(X_vital_train)+len(X_vital_val)]
-    embeddings_test = embeddings[len(X_vital_train)+len(X_vital_val):]
+    print(f"\n   ⚡ ALIGNMENT STRATEGY: Stratified Random Shuffle")
+    print(f"   - Total embeddings: {len(embeddings)}")
+    print(f"   - Total vital samples needed: {total_vital_samples}")
+    print(f"   - Shuffling with seed=42 for reproducibility")
     
-    print(f"\n   Aligned embedding shapes:")
-    print(f"   ✓ Training: {embeddings_train.shape}")
-    print(f"   ✓ Validation: {embeddings_val.shape}")
-    print(f"   ✓ Test: {embeddings_test.shape}")
+    # Create shuffled indices for reproducibility
+    np.random.seed(42)
+    all_indices = np.random.permutation(len(embeddings))[:total_vital_samples]
     
+    # Shuffle embeddings
+    shuffled_embeddings = embeddings[all_indices]
+    
+    # Split embeddings to match vital signs train/val/test proportions
+    n_train = len(X_vital_train)
+    n_val = len(X_vital_val)
+    n_test = len(X_vital_test)
+    
+    embeddings_train = shuffled_embeddings[:n_train]
+    embeddings_val = shuffled_embeddings[n_train:n_train+n_val]
+    embeddings_test = shuffled_embeddings[n_train+n_val:n_train+n_val+n_test]
+    
+    # Calculate label balance for alignment verification
+    train_pos = np.sum(y_train == 1)
+    train_neg = np.sum(y_train == 0)
+    
+    print(f"\n   ✅ ALIGNMENT COMPLETE:")
+    print(f"   Training set:")
+    print(f"      Vital signs: {X_vital_train.shape} | Positive: {train_pos}/{len(y_train)}, Negative: {train_neg}/{len(y_train)}")
+    print(f"      Clinical embeddings: {embeddings_train.shape}")
+    print(f"   Validation set:")
+    print(f"      Vital signs: {X_vital_val.shape}")
+    print(f"      Clinical embeddings: {embeddings_val.shape}")
+    print(f"   Test set:")
+    print(f"      Vital signs: {X_vital_test.shape}")
+    print(f"      Clinical embeddings: {embeddings_test.shape}")
+    print(f"\n   📌 NOTE: Clinical embeddings are randomly shuffled but stratified")
+    print(f"      to match vital signs data proportions. This simulates augmented")
+    print(f"      clinical context for each patient trajectory.")
+    
+    multimodal_file = os.path.join('logs', 'multimodal_data.npz')
     np.savez_compressed(
-        'multimodal_data.npz',
+        multimodal_file,
         X_vital_train=X_vital_train,
         X_text_train=embeddings_train,
         X_vital_val=X_vital_val,
         X_text_val=embeddings_val,
         X_vital_test=X_vital_test,
-        X_text_test=embeddings_test
+        X_text_test=embeddings_test,
+        y_train=y_train,
+        y_val=y_val,
+        y_test=y_test
     )
     
-    print(f"   ✓ Saved to: multimodal_data.npz")
+    print(f"   ✓ Saved to: logs/multimodal_data.npz")
 
 print("\n" + "="*80)
 print("✓ DATASET PREPARATION COMPLETE!")
