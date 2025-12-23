@@ -82,3 +82,5 @@ Thumbs.db
 .env
 .env.local
 secrets.json
+test/config.py
+test/*.json

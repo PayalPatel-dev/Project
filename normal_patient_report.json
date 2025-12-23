@@ -1,0 +1,51 @@
+{
+  "patient_id": "PT_NORMAL_001",
+  "timestamp": "2025-12-15 22:01:56",
+  "patient_type": "normal",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 99.375,
+      "min": 92.0,
+      "max": 111.0,
+      "std": 5.352666780836135
+    },
+    "Systolic_BP": {
+      "mean": 95.95833333333333,
+      "min": 91.0,
+      "max": 100.0,
+      "std": 2.423481769869311
+    },
+    "Diastolic_BP": {
+      "mean": 20.75,
+      "min": 17.0,
+      "max": 30.0,
+      "std": 3.854110359949059
+    },
+    "Respiratory_Rate": {
+      "mean": 119.33333333333333,
+      "min": 98.0,
+      "max": 160.0,
+      "std": 17.20868643705524
+    },
+    "SpO2": {
+      "mean": 53.5,
+      "min": 33.0,
+      "max": 73.0,
+      "std": 9.669539802906858
+    },
+    "Temperature": {
+      "mean": 36.5,
+      "min": 36.5,
+      "max": 36.5,
+      "std": 0.0
+    }
+  },
+  "clinical_note": "The patient's vital signs over the past 24 hours show a persistently elevated respiratory rate and markedly low oxygen saturation, which are concerning. While heart rate and blood pressure are within their respective ranges, the hypoxemia is a priority that requires further investigation and management. The temperature has remained stable and normal.",
+  "predictions": {
+    "lstm_vital_score": 0.0006142696365714073,
+    "clinical_classifier_score": 0.7064571380615234,
+    "fusion_final_score": 0.014245575293898582,
+    "risk_category": "LOW RISK"
+  },
+  "decision": "NO_ALERT"
+}
