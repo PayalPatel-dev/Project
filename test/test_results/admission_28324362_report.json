@@ -1,0 +1,51 @@
+{
+  "admission_id": 28324362,
+  "timestamp": "2025-12-28 00:26:16",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 105.73333333333333,
+      "min": 94.0,
+      "max": 114.0,
+      "std": 6.826093725957441
+    },
+    "Systolic_BP": {
+      "mean": 55.23076923076923,
+      "min": 43.0,
+      "max": 68.0,
+      "std": 6.761359059490994
+    },
+    "Diastolic_BP": {
+      "mean": 70.61538461538461,
+      "min": 59.0,
+      "max": 84.0,
+      "std": 7.033310431176899
+    },
+    "Respiratory_Rate": {
+      "mean": 22.266666666666666,
+      "min": 16.0,
+      "max": 43.0,
+      "std": 6.454627969311804
+    },
+    "SpO2": {
+      "mean": 96.86666666666666,
+      "min": 94.0,
+      "max": 99.0,
+      "std": 1.5434449203720302
+    },
+    "Temperature": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nAsymptomatic\n \nMajor Surgical or Invasive Procedure:\nMitral Valve Repair (38mm ring) ___\n\n \nHistory of Present Illness:\nMr. ___ is a ___ male with no significant past medical\nhistory who was found to have a heart murmur on his annua",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.89979088306427,
+    "fusion_final_score": 0.33732253313064575,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

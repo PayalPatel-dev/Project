@@ -1,0 +1,51 @@
+{
+  "admission_id": 29974575,
+  "timestamp": "2025-12-28 00:28:09",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 82.55555555555556,
+      "min": 77.0,
+      "max": 89.0,
+      "std": 3.3866112564729263
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 19.166666666666668,
+      "min": 15.0,
+      "max": 23.0,
+      "std": 2.1921577396609844
+    },
+    "SpO2": {
+      "mean": 96.0,
+      "min": 93.0,
+      "max": 99.0,
+      "std": 1.5986105077709065
+    },
+    "Temperature": {
+      "mean": 98.14999999999999,
+      "min": 98.0,
+      "max": 98.4,
+      "std": 0.15000000000000174
+    }
+  },
+  "clinical_note_preview": " \nName:  ___               ___ No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nciprofloxacin\n \nAttending: ___.\n \nChief Complaint:\nRespiratory failure, hypotension\n \nMajor Surgical or Invasive Procedure:\nIntubation\nBronchoscopy\nPICC placement\nCentral Line Placement\n\n \nHistory of Present Illness:\nMr. ___ is a ___ with a PMHx of COPD, cutaneous TCL, \nrectosigmoid adenocarcinoma (sp radiation and chemoth",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9325920939445496,
+    "fusion_final_score": 0.3270041346549988,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

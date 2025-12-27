@@ -1,0 +1,51 @@
+{
+  "admission_id": 28861356,
+  "timestamp": "2025-12-28 00:26:59",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 86.0625,
+      "min": 80.0,
+      "max": 99.0,
+      "std": 5.51666509315184
+    },
+    "Systolic_BP": {
+      "mean": 56.09090909090909,
+      "min": 48.0,
+      "max": 63.0,
+      "std": 3.9647204522466413
+    },
+    "Diastolic_BP": {
+      "mean": 82.18181818181819,
+      "min": 71.0,
+      "max": 92.0,
+      "std": 5.874725244146732
+    },
+    "Respiratory_Rate": {
+      "mean": 23.0,
+      "min": 17.0,
+      "max": 31.0,
+      "std": 3.24037034920393
+    },
+    "SpO2": {
+      "mean": 96.9375,
+      "min": 92.0,
+      "max": 100.0,
+      "std": 2.0757152381769517
+    },
+    "Temperature": {
+      "mean": 98.175,
+      "min": 98.1,
+      "max": 98.2,
+      "std": 0.043301270189225624
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: SURGERY\n \nAllergies: \nmorphine / Lipitor\n \nAttending: ___\n \nChief Complaint:\n1. Ischemic bowel.\n2. End ileostomy.\n\n \nMajor Surgical or Invasive Procedure:\n___ of end ileostomy with ileocolic anastomosis.\n\n \nHistory of Present Illness:\nThe patient is a ___ male who had presented in ___ with ischemic bowel requiring a right colectomy with end",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.48412811756134033,
+    "fusion_final_score": 0.4282604157924652,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

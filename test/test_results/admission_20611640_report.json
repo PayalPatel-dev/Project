@@ -1,0 +1,51 @@
+{
+  "admission_id": 20611640,
+  "timestamp": "2025-12-28 00:19:27",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 68.46153846153847,
+      "min": 56.0,
+      "max": 102.0,
+      "std": 14.731522374801932
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 16.692307692307693,
+      "min": 12.0,
+      "max": 23.0,
+      "std": 2.78414785705444
+    },
+    "SpO2": {
+      "mean": 96.38461538461539,
+      "min": 92.0,
+      "max": 100.0,
+      "std": 2.271511240035908
+    },
+    "Temperature": {
+      "mean": 97.33333333333333,
+      "min": 96.2,
+      "max": 98.1,
+      "std": 0.8178562764256838
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___\n \nChief Complaint:\naltered mental status, hemiplegia\n\n \nMajor Surgical or Invasive Procedure:\nendotracheal intubation\n\n \nHistory of Present Illness:\nMs. ___ is a ___ woman with a history of endometrial \ncancer with recently discovered poorly differentiated lesi",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.812762975692749,
+    "fusion_final_score": 0.3609972298145294,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

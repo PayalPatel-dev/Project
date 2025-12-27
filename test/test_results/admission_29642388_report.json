@@ -1,0 +1,51 @@
+{
+  "admission_id": 29642388,
+  "timestamp": "2025-12-28 00:28:00",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 63.86666666666667,
+      "min": 60.0,
+      "max": 70.0,
+      "std": 3.116978594016256
+    },
+    "Systolic_BP": {
+      "mean": 44.666666666666664,
+      "min": 37.0,
+      "max": 55.0,
+      "std": 4.4820630170590965
+    },
+    "Diastolic_BP": {
+      "mean": 72.46666666666667,
+      "min": 65.0,
+      "max": 82.0,
+      "std": 4.828618389928485
+    },
+    "Respiratory_Rate": {
+      "mean": 20.733333333333334,
+      "min": 18.0,
+      "max": 24.0,
+      "std": 1.730767331432956
+    },
+    "SpO2": {
+      "mean": 96.4,
+      "min": 92.0,
+      "max": 99.0,
+      "std": 2.009975124224178
+    },
+    "Temperature": {
+      "mean": 98.13333333333333,
+      "min": 97.9,
+      "max": 98.6,
+      "std": 0.32998316455371685
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: SURGERY\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nbilateral hip and thigh pain \n \nMajor Surgical or Invasive Procedure:\nnone\n\n \nHistory of Present Illness:\n___ M presents to ER w/acute onset of moderate to severe \nbilateral hip and thigh pain x3 weeks prior, symptoms persisted, \nw/exacerbati",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.6920375823974609,
+    "fusion_final_score": 0.3852287828922272,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

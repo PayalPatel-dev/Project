@@ -1,0 +1,51 @@
+{
+  "admission_id": 24656677,
+  "timestamp": "2025-12-28 00:23:13",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 94.5,
+      "min": 94.0,
+      "max": 95.0,
+      "std": 0.5
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 26.0,
+      "min": 25.0,
+      "max": 27.0,
+      "std": 1.0
+    },
+    "SpO2": {
+      "mean": 93.5,
+      "min": 92.0,
+      "max": 95.0,
+      "std": 1.5
+    },
+    "Temperature": {
+      "mean": 98.0,
+      "min": 98.0,
+      "max": 98.0,
+      "std": 0.0
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                    Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nAspirin / Sulfasalazine / Lisinopril / Codeine\n \nAttending: ___.\n \nChief Complaint:\nVomiting\n \nMajor Surgical or Invasive Procedure:\nNone\n\n \nHistory of Present Illness:\nMs. ___ is an ___ year old ___ speaking woman with a past \nmedical history significant for insulin dependent type 2 \ndiabetes poorly controlled with ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7003244161605835,
+    "fusion_final_score": 0.3835456371307373,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

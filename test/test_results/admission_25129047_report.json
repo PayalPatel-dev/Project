@@ -1,0 +1,51 @@
+{
+  "admission_id": 25129047,
+  "timestamp": "2025-12-28 00:23:50",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 76.5909090909091,
+      "min": 63.0,
+      "max": 105.0,
+      "std": 9.828803177438566
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 19.363636363636363,
+      "min": 13.0,
+      "max": 26.0,
+      "std": 3.8558745564451815
+    },
+    "SpO2": {
+      "mean": 95.54545454545455,
+      "min": 93.0,
+      "max": 98.0,
+      "std": 1.195722403451446
+    },
+    "Temperature": {
+      "mean": 98.38000000000001,
+      "min": 97.5,
+      "max": 99.4,
+      "std": 0.6705221845696099
+    }
+  },
+  "clinical_note_preview": " \nName:  ___               Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: NEUROSURGERY\n \nAllergies: \nCodeine / Benadryl / Penicillins / Percocet\n \nAttending: ___.\n \nChief Complaint:\nfall\n \nMajor Surgical or Invasive Procedure:\nPEG placement\n\n \nHistory of Present Illness:\n___ year old gentleman found down by his parents at 6am this \nmorning after they had initially heard a \"thump\" at 3am. Upon \nbeing found EMS was cal",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9656307101249695,
+    "fusion_final_score": 0.31677761673927307,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

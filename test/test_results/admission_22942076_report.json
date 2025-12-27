@@ -1,0 +1,51 @@
+{
+  "admission_id": 22942076,
+  "timestamp": "2025-12-28 00:21:24",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 95.72222222222223,
+      "min": 36.0,
+      "max": 106.0,
+      "std": 14.850385537664803
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 21.294117647058822,
+      "min": 9.0,
+      "max": 25.0,
+      "std": 3.7536602667161922
+    },
+    "SpO2": {
+      "mean": 92.86666666666666,
+      "min": 90.0,
+      "max": 97.0,
+      "std": 2.390722810272148
+    },
+    "Temperature": {
+      "mean": 98.98333333333335,
+      "min": 98.0,
+      "max": 99.5,
+      "std": 0.598377435700543
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nChief Complaint:  GIB\nReason for MICU transfer:  active GIB\n\n \nMajor Surgical or Invasive Procedure:\nEGD with banding\nTIPS\n\n \nHistory of Present Illness:\nMr. ___ is a ___ y/o man with h/o EtOH cirrhosis, currently \ndrinking, c/b recurrent a",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9379817247390747,
+    "fusion_final_score": 0.32532426714897156,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

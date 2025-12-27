@@ -1,0 +1,51 @@
+{
+  "admission_id": 28661809,
+  "timestamp": "2025-12-28 00:26:41",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 83.52631578947368,
+      "min": 72.0,
+      "max": 121.0,
+      "std": 9.92269287013429
+    },
+    "Systolic_BP": {
+      "mean": 47.63157894736842,
+      "min": 27.0,
+      "max": 64.0,
+      "std": 11.089162686419233
+    },
+    "Diastolic_BP": {
+      "mean": 71.76315789473684,
+      "min": 34.0,
+      "max": 104.0,
+      "std": 20.897222442639944
+    },
+    "Respiratory_Rate": {
+      "mean": 18.289473684210527,
+      "min": 10.0,
+      "max": 30.0,
+      "std": 4.950586859081201
+    },
+    "SpO2": {
+      "mean": 97.42857142857143,
+      "min": 95.0,
+      "max": 99.0,
+      "std": 1.1780301787479028
+    },
+    "Temperature": {
+      "mean": 98.4,
+      "min": 98.3,
+      "max": 98.5,
+      "std": 0.10000000000000142
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nPenicillins\n \nAttending: ___.\n \nChief Complaint:\nweakness, hypoxia secondary to superior vena cava syndrome\n \nMajor Surgical or Invasive Procedure:\nintubation ___\nLeft femoral line placement ___\nR femoral line placement\nLeft chest tube placement\nRadiation Therapy\nLeft PICC placement\n \nHistory of Present Illness:\n___ h",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8270227313041687,
+    "fusion_final_score": 0.3581785559654236,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

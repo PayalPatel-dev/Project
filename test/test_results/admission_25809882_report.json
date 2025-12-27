@@ -1,0 +1,51 @@
+{
+  "admission_id": 25809882,
+  "timestamp": "2025-12-28 00:24:08",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 87.38461538461539,
+      "min": 80.0,
+      "max": 94.0,
+      "std": 4.731863538224522
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 22.46153846153846,
+      "min": 20.0,
+      "max": 27.0,
+      "std": 2.0235302212255237
+    },
+    "SpO2": {
+      "mean": 94.84615384615384,
+      "min": 87.0,
+      "max": 100.0,
+      "std": 3.5267364265685077
+    },
+    "Temperature": {
+      "mean": 99.42500000000001,
+      "min": 98.6,
+      "max": 100.5,
+      "std": 0.7395099728874528
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                      Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: NEUROLOGY\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nseizure\n \nMajor Surgical or Invasive Procedure:\nLumbar puncture\n\n \nHistory of Present Illness:\nThe pt is a ___ year-old woman who presents as a transfer from\n___, intubated, for concern of status\nepilepticus. All the history is obtain",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.47681671380996704,
+    "fusion_final_score": 0.4297977685928345,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

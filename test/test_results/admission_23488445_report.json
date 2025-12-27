@@ -1,0 +1,51 @@
+{
+  "admission_id": 23488445,
+  "timestamp": "2025-12-28 00:22:06",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 85.73913043478261,
+      "min": 73.0,
+      "max": 108.0,
+      "std": 9.583579213853463
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 24.347826086956523,
+      "min": 20.0,
+      "max": 31.0,
+      "std": 2.8069586767946038
+    },
+    "SpO2": {
+      "mean": 91.65217391304348,
+      "min": 89.0,
+      "max": 97.0,
+      "std": 2.0559287682672855
+    },
+    "Temperature": {
+      "mean": 98.26,
+      "min": 97.6,
+      "max": 99.0,
+      "std": 0.4498888751680817
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                ___ No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nBactrim / ciprofloxacin / erythromycin base / metronidazole / \nPenicillins / lisinopril / phenobarbital / phenobarbital\n \nAttending: ___.\n \nChief Complaint:\nseptic shock  \n \nMajor Surgical or Invasive Procedure:\nnone\n\n \nHistory of Present Illness:\n___ YOF with history of COPD not on home O2, Afib on apixaban, \nand recent ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9678643345832825,
+    "fusion_final_score": 0.3160923421382904,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

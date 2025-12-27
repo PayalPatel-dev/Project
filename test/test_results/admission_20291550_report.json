@@ -1,0 +1,51 @@
+{
+  "admission_id": 20291550,
+  "timestamp": "2025-12-28 00:19:06",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 83.11764705882354,
+      "min": 72.0,
+      "max": 92.0,
+      "std": 5.571802464100997
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 18.941176470588236,
+      "min": 12.0,
+      "max": 22.0,
+      "std": 2.4607647839237514
+    },
+    "SpO2": {
+      "mean": 94.29411764705883,
+      "min": 90.0,
+      "max": 98.0,
+      "std": 1.902466073976027
+    },
+    "Temperature": {
+      "mean": 96.64,
+      "min": 96.0,
+      "max": 97.9,
+      "std": 0.7227724399837085
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: SURGERY\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nS/P MVC\nRight leg and chest pain\n \nMajor Surgical or Invasive Procedure:\n___\n1. Irrigation debridement skin to bone right femur.\n2. Open reduction internal fixation with intramedullary\n    nail right open femur fracture.\n\n \nHistory of Presen",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.5573340058326721,
+    "fusion_final_score": 0.4129486680030823,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

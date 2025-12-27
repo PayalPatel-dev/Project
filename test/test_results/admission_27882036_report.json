@@ -1,0 +1,51 @@
+{
+  "admission_id": 27882036,
+  "timestamp": "2025-12-28 00:25:38",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 63.76190476190476,
+      "min": 53.0,
+      "max": 71.0,
+      "std": 4.565968962044997
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 18.095238095238095,
+      "min": 15.0,
+      "max": 23.0,
+      "std": 2.13596776114341
+    },
+    "SpO2": {
+      "mean": 99.14285714285714,
+      "min": 95.0,
+      "max": 100.0,
+      "std": 1.4891900734392274
+    },
+    "Temperature": {
+      "mean": 98.35000000000001,
+      "min": 97.9,
+      "max": 98.9,
+      "std": 0.30956959368344517
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                     Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nHypoxic and Hypercarbic Respiratory Failure, deep vein \nthromboses\n \nMajor Surgical or Invasive Procedure:\nNone\n \nHistory of Present Illness:\n___ y/o F with atrial fibrillation on warfarin, PE, CKD III, PVD, \nmultinodular goiter s/p bio",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.6035529971122742,
+    "fusion_final_score": 0.4033655524253845,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

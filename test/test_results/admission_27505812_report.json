@@ -1,0 +1,51 @@
+{
+  "admission_id": 27505812,
+  "timestamp": "2025-12-28 00:25:03",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 76.72727272727273,
+      "min": 71.0,
+      "max": 84.0,
+      "std": 4.433158305540585
+    },
+    "Systolic_BP": {
+      "mean": 55.888888888888886,
+      "min": 49.0,
+      "max": 63.0,
+      "std": 4.941634657319352
+    },
+    "Diastolic_BP": {
+      "mean": 75.03703703703702,
+      "min": 68.0,
+      "max": 86.0,
+      "std": 5.969975173024549
+    },
+    "Respiratory_Rate": {
+      "mean": 11.06060606060606,
+      "min": 8.0,
+      "max": 16.0,
+      "std": 2.0091617520303973
+    },
+    "SpO2": {
+      "mean": 99.60606060606061,
+      "min": 99.0,
+      "max": 100.0,
+      "std": 0.467492382440652
+    },
+    "Temperature": {
+      "mean": 96.5,
+      "min": 96.5,
+      "max": 96.5,
+      "std": 0.0
+    }
+  },
+  "clinical_note_preview": " \nName:  ___             Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \n___\n \nAttending: ___\n \nChief Complaint:\nExterional chest pain\n\n \nMajor Surgical or Invasive Procedure:\n___\nCoronary artery bypass graft times 5, left internal mammary \nartery to left anterior descending artery and saphenous vein \ngrafts to diagonal 1, diagonal 2, obtuse marginal 1 and the \nposterior descending arterie",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7893350124359131,
+    "fusion_final_score": 0.36564895510673523,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

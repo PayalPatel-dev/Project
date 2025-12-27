@@ -1,0 +1,51 @@
+{
+  "admission_id": 24982426,
+  "timestamp": "2025-12-28 00:23:36",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 90.45454545454545,
+      "min": 85.0,
+      "max": 100.0,
+      "std": 3.8343812198114806
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 19.40909090909091,
+      "min": 15.0,
+      "max": 24.0,
+      "std": 2.674102923651405
+    },
+    "SpO2": {
+      "mean": 96.4090909090909,
+      "min": 91.0,
+      "max": 99.0,
+      "std": 1.5857057765920373
+    },
+    "Temperature": {
+      "mean": 97.88333333333334,
+      "min": 97.8,
+      "max": 98.0,
+      "std": 0.08975274678557657
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\ncardiogenic ___, NSTEMI\n \nMajor Surgical or Invasive Procedure:\n- cardiac catheterization with DES to mid-LAD occlusion via R \nradial access\n- IABP placement and removal\n \nHistory of Present Illness:\nMr. ___ is a ___ M with HTN, HLD, DMII,",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9290438294410706,
+    "fusion_final_score": 0.32811251282691956,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

@@ -1,0 +1,51 @@
+{
+  "admission_id": 21027282,
+  "timestamp": "2025-12-28 00:19:47",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 80.4,
+      "min": 73.0,
+      "max": 84.0,
+      "std": 2.9393876913398143
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 21.4,
+      "min": 19.0,
+      "max": 24.0,
+      "std": 1.3564659966250538
+    },
+    "SpO2": {
+      "mean": 97.4,
+      "min": 94.0,
+      "max": 100.0,
+      "std": 1.7048949136725895
+    },
+    "Temperature": {
+      "mean": 98.05000000000001,
+      "min": 97.6,
+      "max": 98.8,
+      "std": 0.47169905660282974
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: SURGERY\n \nAllergies: \nmorphine / Lipitor\n \nAttending: ___.\n \nChief Complaint:\nporto-venous and mesenteric venous gas; ischemic bowel; sepsis\n\n \nMajor Surgical or Invasive Procedure:\n___ exploratory laparotomy, extended right colectomy, left \nin discontinuity  \n___ Abdominal closure, end ileostomy, long ___ \n___ PEG  \n\n \nHistory of Present I",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7981769442558289,
+    "fusion_final_score": 0.36389032006263733,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

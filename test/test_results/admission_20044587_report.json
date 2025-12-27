@@ -1,0 +1,51 @@
+{
+  "admission_id": 20044587,
+  "timestamp": "2025-12-28 00:18:51",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 71.6470588235294,
+      "min": 61.0,
+      "max": 92.0,
+      "std": 8.087326152113407
+    },
+    "Systolic_BP": {
+      "mean": 52.05,
+      "min": 48.0,
+      "max": 61.0,
+      "std": 3.965160778581368
+    },
+    "Diastolic_BP": {
+      "mean": 75.85,
+      "min": 70.0,
+      "max": 83.0,
+      "std": 4.37064068530004
+    },
+    "Respiratory_Rate": {
+      "mean": 24.441176470588236,
+      "min": 19.0,
+      "max": 32.0,
+      "std": 3.280433763199691
+    },
+    "SpO2": {
+      "mean": 95.38235294117646,
+      "min": 92.0,
+      "max": 100.0,
+      "std": 2.0546175525379975
+    },
+    "Temperature": {
+      "mean": 98.53333333333335,
+      "min": 98.0,
+      "max": 99.3,
+      "std": 0.5557777333511014
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nTiclid\n \nAttending: ___\n \nChief Complaint:\n shortness of breath on exertion\n\n \nMajor Surgical or Invasive Procedure:\n___\n1. Coronary artery bypass graft x4:  Left internal mammary\n    artery to left anterior descending artery and saphenous\n    vein grafts to ramus obtuse marginal and posterior\n    descending arte",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.4651831090450287,
+    "fusion_final_score": 0.43224668502807617,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

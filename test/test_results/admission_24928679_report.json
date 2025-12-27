@@ -1,0 +1,51 @@
+{
+  "admission_id": 24928679,
+  "timestamp": "2025-12-28 00:23:31",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 74.3125,
+      "min": 63.0,
+      "max": 82.0,
+      "std": 4.208900539333283
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 13.0625,
+      "min": 10.0,
+      "max": 16.0,
+      "std": 1.6381678027601445
+    },
+    "SpO2": {
+      "mean": 99.25,
+      "min": 97.0,
+      "max": 100.0,
+      "std": 0.9682458365518543
+    },
+    "Temperature": {
+      "mean": 98.35,
+      "min": 97.7,
+      "max": 98.7,
+      "std": 0.38405728739342987
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \ncats, dogs, dust, pollen\n \nAttending: ___\n \nChief Complaint:\nshortness of breath\n \nMajor Surgical or Invasive Procedure:\n___: EGD w/ banding\n\n \nHistory of Present Illness:\nMs. ___ is a ___ yo F with PMH EtOH cirrhosis c/b renal failure\n(HD ___, continued EtOH abuse (1 pint/day), and prior RLE\nDVT ___ ago) who presents f",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.813475489616394,
+    "fusion_final_score": 0.36085617542266846,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

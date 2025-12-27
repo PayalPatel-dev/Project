@@ -1,0 +1,51 @@
+{
+  "admission_id": 29366372,
+  "timestamp": "2025-12-28 00:27:48",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 90.3157894736842,
+      "min": 70.0,
+      "max": 105.0,
+      "std": 9.307906269058225
+    },
+    "Systolic_BP": {
+      "mean": 56.75,
+      "min": 51.0,
+      "max": 64.0,
+      "std": 3.526683994916471
+    },
+    "Diastolic_BP": {
+      "mean": 70.6875,
+      "min": 65.0,
+      "max": 78.0,
+      "std": 3.7867986149252775
+    },
+    "Respiratory_Rate": {
+      "mean": 22.57894736842105,
+      "min": 18.0,
+      "max": 36.0,
+      "std": 3.884053626841072
+    },
+    "SpO2": {
+      "mean": 98.26315789473684,
+      "min": 95.0,
+      "max": 100.0,
+      "std": 1.8018150282761778
+    },
+    "Temperature": {
+      "mean": 98.35,
+      "min": 98.1,
+      "max": 98.9,
+      "std": 0.3278719262151047
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___\n \nChief Complaint:\nchest pain\n \nMajor Surgical or Invasive Procedure:\n___  1. Urgent coronary artery bypass graft x3, left \ninternal\n    mammary artery to left anterior descending artery, right\n    internal mammary artery to distal right coronary artery",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8478450775146484,
+    "fusion_final_score": 0.3539820909500122,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

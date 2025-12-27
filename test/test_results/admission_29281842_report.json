@@ -1,0 +1,51 @@
+{
+  "admission_id": 29281842,
+  "timestamp": "2025-12-28 00:27:39",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 71.25,
+      "min": 63.0,
+      "max": 86.0,
+      "std": 6.632307290830243
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 17.25,
+      "min": 15.0,
+      "max": 26.0,
+      "std": 2.5860201081971503
+    },
+    "SpO2": {
+      "mean": 98.475,
+      "min": 97.0,
+      "max": 100.0,
+      "std": 0.7980444849756183
+    },
+    "Temperature": {
+      "mean": 98.55,
+      "min": 97.8,
+      "max": 99.4,
+      "std": 0.6238322424071009
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nZosyn\n \nAttending: ___.\n \nChief Complaint:\nPneumonia\n \nMajor Surgical or Invasive Procedure:\n___ line placement ___\n\n \nHistory of Present Illness:\n___ year old with a PMHx of ALS with permanent trach on vent who \npresents with pneumonia. Per report, patient was supposed to get \na trach change today. At rehab, RT attemp",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8355096578598022,
+    "fusion_final_score": 0.3565056622028351,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

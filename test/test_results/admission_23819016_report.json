@@ -1,0 +1,51 @@
+{
+  "admission_id": 23819016,
+  "timestamp": "2025-12-28 00:22:20",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 73.52380952380952,
+      "min": 60.0,
+      "max": 106.0,
+      "std": 12.187499636606775
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 16.571428571428573,
+      "min": 11.0,
+      "max": 22.0,
+      "std": 2.700466072144348
+    },
+    "SpO2": {
+      "mean": 99.61904761904762,
+      "min": 97.0,
+      "max": 100.0,
+      "std": 0.7221786137191952
+    },
+    "Temperature": {
+      "mean": 98.60000000000001,
+      "min": 97.8,
+      "max": 99.5,
+      "std": 0.5446711546122733
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nHypotension, Abdominal Pain\n \nMajor Surgical or Invasive Procedure:\nRight internal jugular line placement \n \nHistory of Present Illness:\nMs. ___ is a ___ w/ PMH of EtOH abuse (currently still \ndrinking) c/b EtOH hepatitis, Wernicke's enceph",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8594436049461365,
+    "fusion_final_score": 0.3502296805381775,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

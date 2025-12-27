@@ -1,0 +1,51 @@
+{
+  "admission_id": 23403708,
+  "timestamp": "2025-12-28 00:21:57",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 83.94736842105263,
+      "min": 69.0,
+      "max": 91.0,
+      "std": 5.206005481632943
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 17.526315789473685,
+      "min": 13.0,
+      "max": 24.0,
+      "std": 3.574300388705188
+    },
+    "SpO2": {
+      "mean": 94.21052631578948,
+      "min": 90.0,
+      "max": 97.0,
+      "std": 1.8232113763882918
+    },
+    "Temperature": {
+      "mean": 97.8,
+      "min": 97.6,
+      "max": 98.2,
+      "std": 0.28284271247462306
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nRecurrent lung cancer\n \nMajor Surgical or Invasive Procedure:\nCervical mediastinoscopy, redo left thoracotomy, completion left \npneumonectomy, mediastinal lymph node dissection, bronchoscopy \nwith bronchoalveolar lavage, pericardial fa",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.1523304283618927,
+    "fusion_final_score": 0.49199700355529785,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

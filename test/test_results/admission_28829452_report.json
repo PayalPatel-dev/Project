@@ -1,0 +1,51 @@
+{
+  "admission_id": 28829452,
+  "timestamp": "2025-12-28 00:26:54",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 77.75,
+      "min": 74.0,
+      "max": 83.0,
+      "std": 2.203217344400381
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 15.666666666666666,
+      "min": 9.0,
+      "max": 25.0,
+      "std": 4.588633299312068
+    },
+    "SpO2": {
+      "mean": 94.91666666666667,
+      "min": 94.0,
+      "max": 97.0,
+      "std": 1.0374916331657276
+    },
+    "Temperature": {
+      "mean": 97.95,
+      "min": 97.9,
+      "max": 98.0,
+      "std": 0.04999999999999716
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nVicodin\n \nAttending: ___.\n \nChief Complaint:\nDsypnea\n \nMajor Surgical or Invasive Procedure:\nBronchial and esophageal stent placement \n\n \nHistory of Present Illness:\n___ y/o female with history of recent diagnosis of adenocarcinoma \nof the lung now s/p bronchial stenting (___), depression, \nanxiety, fibromyalgia, and s",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8734704852104187,
+    "fusion_final_score": 0.3457164168357849,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

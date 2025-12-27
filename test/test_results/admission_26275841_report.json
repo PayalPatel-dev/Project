@@ -1,0 +1,51 @@
+{
+  "admission_id": 26275841,
+  "timestamp": "2025-12-28 00:24:26",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 78.1,
+      "min": 64.0,
+      "max": 87.0,
+      "std": 5.974110812497538
+    },
+    "Systolic_BP": {
+      "mean": 72.3125,
+      "min": 64.0,
+      "max": 91.0,
+      "std": 6.526089468433604
+    },
+    "Diastolic_BP": {
+      "mean": 89.4375,
+      "min": 78.0,
+      "max": 103.0,
+      "std": 5.567413560173161
+    },
+    "Respiratory_Rate": {
+      "mean": 20.9,
+      "min": 16.0,
+      "max": 27.0,
+      "std": 3.2388269481403293
+    },
+    "SpO2": {
+      "mean": 96.8,
+      "min": 93.0,
+      "max": 100.0,
+      "std": 2.039607805437114
+    },
+    "Temperature": {
+      "mean": 98.47999999999999,
+      "min": 97.6,
+      "max": 99.4,
+      "std": 0.7082372483850337
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nLatex / Penicillins\n \nAttending: ___.\n \nChief Complaint:\nDyspnea\n \nMajor Surgical or Invasive Procedure:\nIntubation\nCentral venous catheterization\n \nHistory of Present Illness:\nMs. ___ is a ___ year-old woman with history of advanced \ninterstitial lung disease, likely NSIP, chronic diastolic CHF, \nDM, and chronic pain",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9649449586868286,
+    "fusion_final_score": 0.316988080739975,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

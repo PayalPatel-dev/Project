@@ -1,0 +1,51 @@
+{
+  "admission_id": 27089790,
+  "timestamp": "2025-12-28 00:24:39",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 89.44444444444444,
+      "min": 83.0,
+      "max": 99.0,
+      "std": 5.079613089183316
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 19.61111111111111,
+      "min": 13.0,
+      "max": 28.0,
+      "std": 3.3356473449506834
+    },
+    "SpO2": {
+      "mean": 95.5,
+      "min": 93.0,
+      "max": 97.0,
+      "std": 1.2583057392117916
+    },
+    "Temperature": {
+      "mean": 98.125,
+      "min": 98.0,
+      "max": 98.4,
+      "std": 0.1639359631075526
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___\n \nChief Complaint:\nChest Pain\n \nMajor Surgical or Invasive Procedure:\n___ Urgent coronary artery bypass graft x3: Left internal \nmammary artery to left anterior descending artery, and saphenous \nvein grafts to obtuse marginal 2, and posterior descendin",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9399129152297974,
+    "fusion_final_score": 0.32472339272499084,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

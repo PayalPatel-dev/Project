@@ -1,0 +1,51 @@
+{
+  "admission_id": 27993466,
+  "timestamp": "2025-12-28 00:25:48",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 81.28571428571429,
+      "min": 71.0,
+      "max": 95.0,
+      "std": 6.072128811160031
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 20.571428571428573,
+      "min": 15.0,
+      "max": 29.0,
+      "std": 4.541569149549091
+    },
+    "SpO2": {
+      "mean": 97.28571428571429,
+      "min": 93.0,
+      "max": 100.0,
+      "std": 1.905952009160905
+    },
+    "Temperature": {
+      "mean": 97.70000000000002,
+      "min": 97.6,
+      "max": 97.9,
+      "std": 0.10954451150103738
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nBenadryl / Dilaudid / Tylenol\n \nAttending: ___.\n \nChief Complaint:\nDyspnea\n \nMajor Surgical or Invasive Procedure:\nNone\n\n \nHistory of Present Illness:\n___ with PMH CAD s/p CABG in ___, ___ with LVEF 25%, atrial \nfibrillation, and MGUS/smoldering myeloma, who presented with \ndyspnea and was found to have a PE.\n\nShe had ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9186393022537231,
+    "fusion_final_score": 0.3313736021518707,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

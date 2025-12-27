@@ -1,0 +1,51 @@
+{
+  "admission_id": 24745425,
+  "timestamp": "2025-12-28 00:23:27",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 86.35714285714286,
+      "min": 73.0,
+      "max": 96.0,
+      "std": 6.934459942481285
+    },
+    "Systolic_BP": {
+      "mean": 55.45454545454545,
+      "min": 50.0,
+      "max": 68.0,
+      "std": 4.7932459368960245
+    },
+    "Diastolic_BP": {
+      "mean": 72.18181818181819,
+      "min": 65.0,
+      "max": 82.0,
+      "std": 4.744723036618141
+    },
+    "Respiratory_Rate": {
+      "mean": 20.0,
+      "min": 15.0,
+      "max": 30.0,
+      "std": 4.174754056057845
+    },
+    "SpO2": {
+      "mean": 97.0,
+      "min": 94.0,
+      "max": 100.0,
+      "std": 1.7728105208558367
+    },
+    "Temperature": {
+      "mean": 98.2,
+      "min": 98.2,
+      "max": 98.2,
+      "std": 0.0
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nlisinopril / shellfish derived\n \nAttending: ___.\n \nChief Complaint:\nDyspnea on exertion\n \nMajor Surgical or Invasive Procedure:\n___ \nAortic valve replacement with a 25 mm\n___ Biocor Epic tissue valve.\n\n \nHistory of Present Illness:\nMr. ___ is a ___ year old man with a history of aortic \ninsufficiency, chronic ki",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7901410460472107,
+    "fusion_final_score": 0.3654884696006775,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

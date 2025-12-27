@@ -1,0 +1,51 @@
+{
+  "admission_id": 21101111,
+  "timestamp": "2025-12-28 00:19:51",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 76.9375,
+      "min": 73.0,
+      "max": 88.0,
+      "std": 3.561403339977094
+    },
+    "Systolic_BP": {
+      "mean": 48.45454545454545,
+      "min": 42.0,
+      "max": 56.0,
+      "std": 3.6770451665739423
+    },
+    "Diastolic_BP": {
+      "mean": 75.81818181818181,
+      "min": 64.0,
+      "max": 85.0,
+      "std": 6.575687752736409
+    },
+    "Respiratory_Rate": {
+      "mean": 14.3125,
+      "min": 11.0,
+      "max": 22.0,
+      "std": 3.617988909601576
+    },
+    "SpO2": {
+      "mean": 96.625,
+      "min": 95.0,
+      "max": 98.0,
+      "std": 0.9270248108869579
+    },
+    "Temperature": {
+      "mean": 97.92500000000001,
+      "min": 97.4,
+      "max": 98.6,
+      "std": 0.4656984002549257
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                     Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: NEUROSURGERY\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nSlurred speech. \n \nMajor Surgical or Invasive Procedure:\nTwo left burr holes and evacuation of subdural hematoma on \n___.\n\n \nHistory of Present Illness:\n___ y/o M hx CAD, HTN, HLD and stage V CKD on ASA 81 presents\nwith word finding",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9297906756401062,
+    "fusion_final_score": 0.32787901163101196,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

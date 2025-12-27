@@ -1,0 +1,51 @@
+{
+  "admission_id": 25239799,
+  "timestamp": "2025-12-28 00:23:55",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 83.33333333333333,
+      "min": 76.0,
+      "max": 97.0,
+      "std": 5.153208277913436
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 20.333333333333332,
+      "min": 15.0,
+      "max": 25.0,
+      "std": 3.118047822311618
+    },
+    "SpO2": {
+      "mean": 97.08333333333333,
+      "min": 94.0,
+      "max": 99.0,
+      "std": 1.70579079087156
+    },
+    "Temperature": {
+      "mean": 98.3,
+      "min": 98.0,
+      "max": 98.5,
+      "std": 0.21602468994692955
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nHydromorphone\n \nAttending: ___\n \nChief Complaint:\nDizziness\n \nMajor Surgical or Invasive Procedure:\n___ - Cardiac catheterization\n___ - Aortic valve replacement\n \nHistory of Present Illness:\nMr. ___ is a ___ year old man with a history of aortic \nstenosist, coronary artery disease status psot multiple stents, \niro",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8789304494857788,
+    "fusion_final_score": 0.3439669907093048,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

@@ -1,0 +1,51 @@
+{
+  "admission_id": 28872262,
+  "timestamp": "2025-12-28 00:27:04",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 109.33333333333333,
+      "min": 105.0,
+      "max": 116.0,
+      "std": 3.1218635053492885
+    },
+    "Systolic_BP": {
+      "mean": 63.333333333333336,
+      "min": 52.0,
+      "max": 70.0,
+      "std": 4.068851871911234
+    },
+    "Diastolic_BP": {
+      "mean": 72.33333333333333,
+      "min": 64.0,
+      "max": 78.0,
+      "std": 3.5746017649212027
+    },
+    "Respiratory_Rate": {
+      "mean": 16.61904761904762,
+      "min": 12.0,
+      "max": 24.0,
+      "std": 3.1694402461511877
+    },
+    "SpO2": {
+      "mean": 94.23809523809524,
+      "min": 92.0,
+      "max": 97.0,
+      "std": 1.63021359701178
+    },
+    "Temperature": {
+      "mean": 99.03333333333335,
+      "min": 98.2,
+      "max": 99.7,
+      "std": 0.5792715732327585
+    }
+  },
+  "clinical_note_preview": " \nName:  ___               Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nClozaril / Tegretol / Benadryl\n \nAttending: ___.\n \nChief Complaint:\nShortness of breath\n \nMajor Surgical or Invasive Procedure:\nRight heart catheterization ___\nLeft thoracotomy with left ventricular pacing wire placement \n___\n \nHistory of Present Illness:\nPt ___ w h/o non-ischemic cardiomyopathy (EF ___ ___ ___ \nattribute",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8867155909538269,
+    "fusion_final_score": 0.341480016708374,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

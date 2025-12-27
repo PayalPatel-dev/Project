@@ -1,0 +1,51 @@
+{
+  "admission_id": 21606243,
+  "timestamp": "2025-12-28 00:20:14",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 113.79166666666667,
+      "min": 103.0,
+      "max": 134.0,
+      "std": 7.164607262245589
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 26.208333333333332,
+      "min": 19.0,
+      "max": 36.0,
+      "std": 4.83027920748089
+    },
+    "SpO2": {
+      "mean": 94.6875,
+      "min": 88.0,
+      "max": 96.0,
+      "std": 2.0223362109204297
+    },
+    "Temperature": {
+      "mean": 98.11666666666667,
+      "min": 97.4,
+      "max": 98.8,
+      "std": 0.4099457958749592
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nlisinopril\n \nAttending: ___.\n \nChief Complaint:\nShortness of breath\n \nMajor Surgical or Invasive Procedure:\nPericardiocentesis ___\n\n \nHistory of Present Illness:\nMs. ___ is an ___ year old woman with a hx of HTN, HLD, \nGrave's disease, discoid lupus (in remission x ___ years) who \npresents with pericardial effusion caus",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8972862362861633,
+    "fusion_final_score": 0.3381170332431793,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

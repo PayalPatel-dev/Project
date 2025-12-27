@@ -1,0 +1,51 @@
+{
+  "admission_id": 24540843,
+  "timestamp": "2025-12-28 00:22:59",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 109.8840579710145,
+      "min": 74.33333333333333,
+      "max": 158.0,
+      "std": 26.354441860056408
+    },
+    "Systolic_BP": {
+      "mean": 59.3,
+      "min": 48.0,
+      "max": 114.0,
+      "std": 13.78078372227066
+    },
+    "Diastolic_BP": {
+      "mean": 75.0,
+      "min": 63.0,
+      "max": 116.0,
+      "std": 11.224972160321824
+    },
+    "Respiratory_Rate": {
+      "mean": 21.81159420289855,
+      "min": 5.666666666666667,
+      "max": 30.0,
+      "std": 6.043182837807749
+    },
+    "SpO2": {
+      "mean": 92.30555555555554,
+      "min": 52.0,
+      "max": 100.0,
+      "std": 11.137156972589494
+    },
+    "Temperature": {
+      "mean": 99.5,
+      "min": 99.5,
+      "max": 99.5,
+      "std": 0.0
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: NEUROSURGERY\n \nAllergies: \nmetformin\n \nAttending: ___.\n \nChief Complaint:\nRight Subdural Hematoma. \n \nMajor Surgical or Invasive Procedure:\n___ - Right craniotomy for evacuation of subdural \nhematoma. \n\n \nHistory of Present Illness:\nMr. ___ is a ___ M with significant cardiac history\nincluding ICD placement, EF 25%, afib on Coumadin. He com",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7602260708808899,
+    "fusion_final_score": 0.3714636266231537,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

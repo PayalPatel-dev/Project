@@ -1,0 +1,51 @@
+{
+  "admission_id": 22130791,
+  "timestamp": "2025-12-28 00:20:36",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 101.84615384615384,
+      "min": 98.0,
+      "max": 107.0,
+      "std": 2.3401562684886548
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 24.032051282051285,
+      "min": 15.0,
+      "max": 40.0,
+      "std": 5.451959819891561
+    },
+    "SpO2": {
+      "mean": 99.15384615384616,
+      "min": 94.0,
+      "max": 100.0,
+      "std": 1.6569737868106165
+    },
+    "Temperature": {
+      "mean": 98.6,
+      "min": 98.2,
+      "max": 99.1,
+      "std": 0.3405877273185254
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                     Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nglyburide / Glucophage / Lexapro / hydrochlorothiazide\n \nAttending: ___.\n \nChief Complaint:\nGI bleed\n \nMajor Surgical or Invasive Procedure:\nIntubation and mechanical ventilation (___)\nEGD ___, and ___\nPlacement of femoral arterial line (___)\nMesenteric arteriogram (___)\n___ embolization of L gastric artery (___)\n\n ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.956419050693512,
+    "fusion_final_score": 0.31961163878440857,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

@@ -1,0 +1,51 @@
+{
+  "admission_id": 25696644,
+  "timestamp": "2025-12-28 00:24:04",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 88.05882352941177,
+      "min": 76.0,
+      "max": 102.0,
+      "std": 6.272916464361543
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 17.705882352941178,
+      "min": 13.0,
+      "max": 26.0,
+      "std": 3.966991835314674
+    },
+    "SpO2": {
+      "mean": 97.46666666666667,
+      "min": 96.0,
+      "max": 100.0,
+      "std": 0.9568466729604883
+    },
+    "Temperature": {
+      "mean": 98.39999999999999,
+      "min": 97.7,
+      "max": 98.9,
+      "std": 0.48476798574163243
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___\n \nChief Complaint:\nHypoglycemia, Alcohol intoxication, Suicidality\n \nMajor Surgical or Invasive Procedure:\nNone\n \nHistory of Present Illness:\n___ is a ___ F with a history of HCV, HIV, and \nmultiple prior admissions for suicidal ideation who presented to \nthe",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9556219577789307,
+    "fusion_final_score": 0.31985753774642944,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

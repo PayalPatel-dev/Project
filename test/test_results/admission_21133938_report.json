@@ -1,0 +1,51 @@
+{
+  "admission_id": 21133938,
+  "timestamp": "2025-12-28 00:19:56",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 101.55555555555556,
+      "min": 96.0,
+      "max": 125.0,
+      "std": 6.387681045246581
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 21.22222222222222,
+      "min": 17.0,
+      "max": 25.0,
+      "std": 2.199887763691481
+    },
+    "SpO2": {
+      "mean": 93.83333333333333,
+      "min": 88.0,
+      "max": 99.0,
+      "std": 2.3863035105460586
+    },
+    "Temperature": {
+      "mean": 97.75999999999999,
+      "min": 96.9,
+      "max": 98.0,
+      "std": 0.4317406628984562
+    }
+  },
+  "clinical_note_preview": " \nName:  ___               Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nClozaril / Tegretol / Benadryl\n \nAttending: ___.\n \nChief Complaint:\nShortness of breath\n \nMajor Surgical or Invasive Procedure:\n___ Intubated/___ placed\n___ Extbuated/___ ganz removed \n \nHistory of Present Illness:\nMr. ___ is a ___ year-old man with PMH significant for \nnonischemic dilated CMP (EF ___ attributed to anti-p",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9914121627807617,
+    "fusion_final_score": 0.3089178502559662,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

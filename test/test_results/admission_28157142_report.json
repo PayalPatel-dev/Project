@@ -1,0 +1,51 @@
+{
+  "admission_id": 28157142,
+  "timestamp": "2025-12-28 00:26:02",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 84.50877192982456,
+      "min": 71.0,
+      "max": 103.0,
+      "std": 8.565105613146768
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 20.842105263157894,
+      "min": 17.0,
+      "max": 26.0,
+      "std": 2.833319754462057
+    },
+    "SpO2": {
+      "mean": 93.73809523809526,
+      "min": 90.0,
+      "max": 96.0,
+      "std": 1.6143138078746602
+    },
+    "Temperature": {
+      "mean": 97.78,
+      "min": 97.4,
+      "max": 98.2,
+      "std": 0.2712931993250112
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                     Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nShortness of breath\n \nMajor Surgical or Invasive Procedure:\n___: TAVR \n___: in CCU post procedure, completed treatment of UTI with \nantibiotics \n___: Thrombin injection to left groin pseudoaneurysm; \ndeveloped low urine output and gradu",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.38538843393325806,
+    "fusion_final_score": 0.44912707805633545,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

@@ -1,0 +1,51 @@
+{
+  "admission_id": 27996267,
+  "timestamp": "2025-12-28 00:25:53",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 77.6470588235294,
+      "min": 67.0,
+      "max": 90.0,
+      "std": 6.407175907854166
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 17.058823529411764,
+      "min": 9.0,
+      "max": 35.0,
+      "std": 6.628553104786578
+    },
+    "SpO2": {
+      "mean": 96.58823529411765,
+      "min": 93.0,
+      "max": 100.0,
+      "std": 1.816875907233
+    },
+    "Temperature": {
+      "mean": 97.73999999999998,
+      "min": 97.4,
+      "max": 98.3,
+      "std": 0.38262252939417596
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: SURGERY\n \nAllergies: \nallopurinol / Statins-Hmg-Coa Reductase Inhibitors\n \nAttending: ___.\n \nChief Complaint:\nLeft lower extremity surgical site infection\n \nMajor Surgical or Invasive Procedure:\n___ Left lower extremity incision and drainage, \ndebridement of left foot ulcer\n___ Left lower extremity washout, wound vac placement\n___ Left lower ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.39523079991340637,
+    "fusion_final_score": 0.44703778624534607,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

@@ -1,0 +1,51 @@
+{
+  "admission_id": 27708593,
+  "timestamp": "2025-12-28 00:25:29",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 95.23611111111111,
+      "min": 85.0,
+      "max": 141.5,
+      "std": 11.799974170823374
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 15.523148148148149,
+      "min": 12.0,
+      "max": 20.0,
+      "std": 2.217321950545999
+    },
+    "SpO2": {
+      "mean": 95.890625,
+      "min": 93.0,
+      "max": 98.75,
+      "std": 1.8306606346821903
+    },
+    "Temperature": {
+      "mean": 98.37499999999999,
+      "min": 98.1,
+      "max": 98.7,
+      "std": 0.2384848003542385
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                    Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: NEUROSURGERY\n \nAllergies: \nOxyContin / bacitracin / Flomax / oxycodone / tamsulosin / \nDilaudid\n \nAttending: ___\n \nChief Complaint:\nThis is a ___ year old man with history of lumbar stenosis who \npresents for elective lumbat lami and fusion L ___\n \nMajor Surgical or Invasive Procedure:\nL2-5 lumbar lami and fusion ___\n\n \nHistory of Present ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7732561230659485,
+    "fusion_final_score": 0.3688561022281647,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

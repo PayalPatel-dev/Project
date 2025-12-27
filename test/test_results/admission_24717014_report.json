@@ -1,0 +1,51 @@
+{
+  "admission_id": 24717014,
+  "timestamp": "2025-12-28 00:23:22",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 58.46666666666667,
+      "min": 50.0,
+      "max": 74.0,
+      "std": 6.621849355647477
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 16.785714285714285,
+      "min": 11.0,
+      "max": 23.0,
+      "std": 3.233277227930364
+    },
+    "SpO2": {
+      "mean": 96.8,
+      "min": 93.0,
+      "max": 100.0,
+      "std": 2.286190426597633
+    },
+    "Temperature": {
+      "mean": 97.47500000000001,
+      "min": 97.2,
+      "max": 97.9,
+      "std": 0.2680951323690922
+    }
+  },
+  "clinical_note_preview": " \nName:  ___              Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: NEUROLOGY\n \nAllergies: \nNitrate Analogues\n \nAttending: ___.\n \nChief Complaint:\nProgressive weakness, progressive dyspnea now at rest. \n \nMajor Surgical or Invasive Procedure:\nNone.\n \nHistory of Present Illness:\nMr. ___ is a ___ year-old right-handed man with a history \nincluding childhood polio, remote alcohol abuse, diet-controlled \nDM, SVT s/p",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9214174151420593,
+    "fusion_final_score": 0.3305012285709381,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

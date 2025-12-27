@@ -1,0 +1,51 @@
+{
+  "admission_id": 28889419,
+  "timestamp": "2025-12-28 00:27:08",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 88.04545454545455,
+      "min": 77.0,
+      "max": 108.0,
+      "std": 8.341992746053345
+    },
+    "Systolic_BP": {
+      "mean": 64.63636363636364,
+      "min": 53.0,
+      "max": 80.0,
+      "std": 7.016509456893626
+    },
+    "Diastolic_BP": {
+      "mean": 86.54545454545455,
+      "min": 76.0,
+      "max": 102.0,
+      "std": 8.161591159077615
+    },
+    "Respiratory_Rate": {
+      "mean": 15.727272727272727,
+      "min": 11.0,
+      "max": 21.0,
+      "std": 2.8948515141983013
+    },
+    "SpO2": {
+      "mean": 98.4090909090909,
+      "min": 94.0,
+      "max": 100.0,
+      "std": 1.6141164458695185
+    },
+    "Temperature": {
+      "mean": 98.84999999999998,
+      "min": 98.4,
+      "max": 99.5,
+      "std": 0.39475730941089743
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                    Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: SURGERY\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nThoracic aneurysm\n \nMajor Surgical or Invasive Procedure:\n___ :  Open Thoracic Aortic Aneurysm Repair\n\n \nHistory of Present Illness:\n___ year old female who was recently found to have what was\nthought to be a mediastinal mass on a routine",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.3771480321884155,
+    "fusion_final_score": 0.45087766647338867,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

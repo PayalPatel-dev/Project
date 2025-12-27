@@ -1,0 +1,51 @@
+{
+  "admission_id": 22205327,
+  "timestamp": "2025-12-28 00:20:45",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 64.20833333333333,
+      "min": 43.0,
+      "max": 97.0,
+      "std": 18.443560679965124
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 19.25,
+      "min": 12.0,
+      "max": 30.0,
+      "std": 3.5852707940498254
+    },
+    "SpO2": {
+      "mean": 94.08333333333333,
+      "min": 90.0,
+      "max": 100.0,
+      "std": 2.3078970706877047
+    },
+    "Temperature": {
+      "mean": 97.93333333333334,
+      "min": 97.7,
+      "max": 98.2,
+      "std": 0.18856180831641117
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nlamotrigine / levetiracetam\n \nAttending: ___.\n \nChief Complaint:\n\"Found down.\"\n \nMajor Surgical or Invasive Procedure:\nLeft HD line insertion\nRight IJ line insertion\nHD line placement (removed ___\nIntubation, s/p extubation ___\n\n \nHistory of Present Illness:\n___ with unknown medical history, but is resident of a group \n",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8595600128173828,
+    "fusion_final_score": 0.3501921594142914,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

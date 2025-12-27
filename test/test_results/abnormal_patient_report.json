@@ -1,6 +1,6 @@
 {
   "patient_id": "PT_ABNORMAL_001",
-  "timestamp": "2025-12-15 22:02:06",
+  "timestamp": "2025-12-15 02:02:48",
   "patient_type": "abnormal",
   "vital_signs_summary": {
     "Heart_Rate": {
@@ -40,11 +40,11 @@
       "std": 0.0
     }
   },
-  "clinical_note": "The patient's vital signs over the past 24 hours show a consistently elevated temperature of 38.0\u00b0C, suggesting fever. While heart rate, blood pressure, and respiratory rate fall within their respective ranges, the oxygen saturation remains alarmingly low at 53.6% with a narrow range. This persistent hypoxemia is a significant concern and warrants further investigation.",
+  "clinical_note": "Over the past 24 hours, the patient has maintained a heart rate within normal limits and exhibited a slight but persistent elevation in temperature to 38.0\u00b0C. Their blood pressure has remained stable, though the diastolic readings are at the lower end of the expected range. The most concerning finding is the persistently low oxygen saturation, consistently below 65%, indicating significant hypoxemia that warrants further investigation and management.",
   "predictions": {
     "lstm_vital_score": 0.9998223185539246,
-    "clinical_classifier_score": 0.8720924854278564,
-    "fusion_final_score": 0.9882563948631287,
+    "clinical_classifier_score": 0.7496986985206604,
+    "fusion_final_score": 0.9892051219940186,
     "risk_category": "HIGH RISK"
   },
   "decision": "ALERT"

@@ -1,0 +1,51 @@
+{
+  "admission_id": 22342963,
+  "timestamp": "2025-12-28 00:20:50",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 74.18939393939394,
+      "min": 64.0,
+      "max": 100.16666666666667,
+      "std": 8.19064128644367
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 23.49242424242424,
+      "min": 17.0,
+      "max": 29.0,
+      "std": 3.618302685662004
+    },
+    "SpO2": {
+      "mean": 97.79365079365081,
+      "min": 93.0,
+      "max": 100.0,
+      "std": 1.6673845770518494
+    },
+    "Temperature": {
+      "mean": 97.78333333333335,
+      "min": 97.5,
+      "max": 98.2,
+      "std": 0.24776781245530996
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___\n \nChief Complaint:\nfatigue, otherwise asymptomatic \n \nMajor Surgical or Invasive Procedure:\n___: Coronary artery bypass graft x4:  Left internal mammary\n    artery to left anterior descending artery, and saphenous\n    vein grafts to diagonal, obtuse ma",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7591818571090698,
+    "fusion_final_score": 0.37167295813560486,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

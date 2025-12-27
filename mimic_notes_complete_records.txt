@@ -1,0 +1,294 @@
+mimic_notes_complete_records.db
+Size: 5.14 MB
+
+Tables: discharge, discharge_detail, radiology, radiology_detail
+
+================================================================================
+TABLE: DISCHARGE
+================================================================================
+
+Column               Type            Null       Key        Default
+--------------------------------------------------------------------------------
+note_id              TEXT            NULL
+subject_id           INTEGER         NULL
+hadm_id              INTEGER         NULL
+note_type            TEXT            NULL
+note_seq             INTEGER         NULL
+charttime            TEXT            NULL
+storetime            TEXT            NULL
+text                 TEXT            NULL
+
+--------------------------------------------------------------------------------
+SAMPLE DATA (First 3 rows):
+--------------------------------------------------------------------------------
+note_id         | subject_id      | hadm_id         | note_type       | note_seq        | charttime       | storetime       | text
+---------------------------------------------------------------------------------------------------------------------------------------------
+10023771-DS-21  | 10023771        | 20044587        | DS              | 21              | 2113-08-30 00:0 | 2113-08-30 12:0 |
+Name:  ___
+10039708-DS-19  | 10039708        | 20093566        | DS              | 19              | 2143-09-30 00:0 | 2143-10-01 07:3 |
+Name:  ___
+10037928-DS-14  | 10037928        | 20192635        | DS              | 14              | 2177-09-07 00:0 | 2177-09-07 22:4 |
+Name:  ___
+
+Total Rows: 216
+
+INDEXES:
+  • idx_discharge_hadm
+    CREATE INDEX idx_discharge_hadm ON discharge(hadm_id)
+  • idx_discharge_subject
+    CREATE INDEX idx_discharge_subject ON discharge(subject_id)
+  • idx_discharge_note
+    CREATE INDEX idx_discharge_note ON discharge(note_id)
+
+================================================================================
+TABLE: DISCHARGE_DETAIL
+================================================================================
+
+Column               Type            Null       Key        Default
+--------------------------------------------------------------------------------
+note_id              TEXT            NULL
+subject_id           INTEGER         NULL
+field_name           TEXT            NULL
+field_value          TEXT            NULL
+field_ordinal        INTEGER         NULL
+
+--------------------------------------------------------------------------------
+SAMPLE DATA (First 3 rows):
+--------------------------------------------------------------------------------
+note_id         | subject_id      | field_name      | field_value     | field_ordinal
+---------------------------------------------------------------------------------------
+10000032-DS-21  | 10000032        | author          | ___             | 1
+10000032-DS-22  | 10000032        | author          | ___             | 1
+10000032-DS-23  | 10000032        | author          | ___             | 1
+
+Total Rows: 216
+
+INDEXES:
+  • idx_discharge_detail_note
+    CREATE INDEX idx_discharge_detail_note ON discharge_detail(note_id)
+
+================================================================================
+TABLE: RADIOLOGY
+================================================================================
+
+Column               Type            Null       Key        Default
+--------------------------------------------------------------------------------
+note_id              TEXT            NULL
+subject_id           INTEGER         NULL
+hadm_id              REAL            NULL
+note_type            TEXT            NULL
+note_seq             INTEGER         NULL
+charttime            TEXT            NULL
+storetime            TEXT            NULL
+text                 TEXT            NULL
+
+--------------------------------------------------------------------------------
+SAMPLE DATA (First 3 rows):
+--------------------------------------------------------------------------------
+note_id         | subject_id      | hadm_id         | note_type       | note_seq        | charttime       | storetime       | text
+---------------------------------------------------------------------------------------------------------------------------------------------
+10023771-RR-15  | 10023771        | 20044587.0      | RR              | 15              | 2113-08-25 12:3 | 2113-08-25 13:5 | TYPE OF EXAMINA
+10023771-RR-16  | 10023771        | 20044587.0      | RR              | 16              | 2113-08-25 20:1 | 2113-08-26 08:0 | CHEST RADIOGRAP
+10023771-RR-17  | 10023771        | 20044587.0      | RR              | 17              | 2113-08-26 08:0 | 2113-08-26 10:0 | SINGLE FRONTAL
+
+Total Rows: 1,403
+
+INDEXES:
+  • idx_radiology_hadm
+    CREATE INDEX idx_radiology_hadm ON radiology(hadm_id)
+  • idx_radiology_subject
+    CREATE INDEX idx_radiology_subject ON radiology(subject_id)
+  • idx_radiology_note
+    CREATE INDEX idx_radiology_note ON radiology(note_id)
+
+================================================================================
+TABLE: RADIOLOGY_DETAIL
+================================================================================
+
+Column               Type            Null       Key        Default
+--------------------------------------------------------------------------------
+note_id              TEXT            NULL
+subject_id           INTEGER         NULL
+field_name           TEXT            NULL
+field_value          TEXT            NULL
+field_ordinal        INTEGER         NULL
+
+--------------------------------------------------------------------------------
+SAMPLE DATA (First 3 rows):
+--------------------------------------------------------------------------------
+note_id         | subject_id      | field_name      | field_value     | field_ordinal
+---------------------------------------------------------------------------------------
+10000032-RR-14  | 10000032        | exam_code       | C11             | 1
+10000032-RR-14  | 10000032        | exam_name       | CHEST (PA & LAT | 1
+10000032-RR-15  | 10000032        | exam_code       | U314            | 1
+
+Total Rows: 3,791
+
+INDEXES:
+  • idx_radiology_detail_note
+    CREATE INDEX idx_radiology_detail_note ON radiology_detail(note_id)
+
+================================================================================
+TABLE RELATIONSHIPS
+================================================================================
+
+    discharge
+    ├── Primary Key: note_id
+    ├── Foreign Keys:
+    │   ├── subject_id → patient identifier
+    │   └── hadm_id → hospital admission identifier
+    └── Related to: discharge_detail (via note_id)
+
+    discharge_detail
+    ├── Primary Key: (note_id, field_ordinal)
+    ├── Foreign Key: note_id → discharge.note_id
+    └── Contains: Author information for discharge notes
+
+    radiology
+    ├── Primary Key: note_id
+    ├── Foreign Keys:
+    │   ├── subject_id → patient identifier
+    │   └── hadm_id → hospital admission identifier (can be NULL)
+    └── Related to: radiology_detail (via note_id)
+
+    radiology_detail
+    ├── Primary Key: (note_id, field_ordinal)
+    ├── Foreign Key: note_id → radiology.note_id
+    └── Contains: Exam codes, exam names, and other metadata
+
+
+================================================================================
+DATA DICTIONARY
+================================================================================
+
+DISCHARGE:
+  • note_id              : Unique identifier for the discharge note
+  • subject_id           : Unique patient identifier
+  • hadm_id              : Hospital admission identifier
+  • note_type            : Type of note (always 'DS' for discharge)
+  • note_seq             : Sequence number of the note
+  • charttime            : Date/time when the note was charted
+  • storetime            : Date/time when the note was stored in system
+  • text                 : Full text content of the discharge summary
+
+DISCHARGE_DETAIL:
+  • note_id              : Links to discharge.note_id
+  • subject_id           : Unique patient identifier
+  • field_name           : Name of the metadata field (e.g., 'author')
+  • field_value          : Value of the metadata field
+  • field_ordinal        : Order of the field (for multiple values)
+
+RADIOLOGY:
+  • note_id              : Unique identifier for the radiology report
+  • subject_id           : Unique patient identifier
+  • hadm_id              : Hospital admission identifier (NULL for outpatient)
+  • note_type            : Type of note (usually 'RR' for radiology report)
+  • note_seq             : Sequence number of the note
+  • charttime            : Date/time when the study was performed
+  • storetime            : Date/time when the report was stored
+  • text                 : Full text content of the radiology report
+
+RADIOLOGY_DETAIL:
+  • note_id              : Links to radiology.note_id
+  • subject_id           : Unique patient identifier
+  • field_name           : Name of the metadata field (e.g., 'exam_code', 'exam_name')
+  • field_value          : Value of the metadata field
+  • field_ordinal        : Order of the field (for multiple values)
+
+================================================================================
+EXAMPLE QUERIES
+================================================================================
+
+1. Get all admissions with note counts
+--------------------------------------------------------------------------------
+SELECT
+    d.hadm_id,
+    d.subject_id,
+    COUNT(DISTINCT d.note_id) as discharge_notes,
+    COUNT(DISTINCT r.note_id) as radiology_notes,
+    d.charttime as discharge_date
+FROM discharge d
+LEFT JOIN radiology r ON d.hadm_id = r.hadm_id
+GROUP BY d.hadm_id, d.subject_id, d.charttime
+ORDER BY d.hadm_id;
+
+2. Get discharge summary text for a specific admission
+--------------------------------------------------------------------------------
+SELECT
+    hadm_id,
+    subject_id,
+    charttime,
+    text
+FROM discharge
+WHERE hadm_id = 22987108;
+
+3. Get all radiology reports for a specific admission
+--------------------------------------------------------------------------------
+SELECT
+    r.note_id,
+    r.charttime,
+    rd.field_value as exam_name,
+    r.text
+FROM radiology r
+LEFT JOIN radiology_detail rd ON r.note_id = rd.note_id
+    AND rd.field_name = 'exam_name'
+WHERE r.hadm_id = 22987108
+ORDER BY r.charttime;
+
+4. Count radiology exams by type
+--------------------------------------------------------------------------------
+SELECT
+    rd.field_value as exam_type,
+    COUNT(*) as count
+FROM radiology_detail rd
+WHERE rd.field_name = 'exam_name'
+GROUP BY rd.field_value
+ORDER BY count DESC;
+
+5. Get patient timeline (all notes chronologically)
+--------------------------------------------------------------------------------
+SELECT
+    hadm_id,
+    'discharge' as note_type,
+    charttime,
+    SUBSTR(text, 1, 100) as preview
+FROM discharge
+WHERE hadm_id = 22987108
+
+UNION ALL
+
+SELECT
+    hadm_id,
+    'radiology' as note_type,
+    charttime,
+    SUBSTR(text, 1, 100) as preview
+FROM radiology
+WHERE hadm_id = 22987108
+
+ORDER BY charttime;
+
+6. Get patients with most imaging studies
+--------------------------------------------------------------------------------
+SELECT
+    r.hadm_id,
+    r.subject_id,
+    COUNT(*) as radiology_count
+FROM radiology r
+GROUP BY r.hadm_id, r.subject_id
+ORDER BY radiology_count DESC
+LIMIT 10;
+
+7. Search for specific text in discharge summaries
+--------------------------------------------------------------------------------
+SELECT
+    hadm_id,
+    subject_id,
+    charttime,
+    SUBSTR(text, 1, 200) as preview
+FROM discharge
+WHERE text LIKE '%pneumonia%'
+LIMIT 10;
+
+================================================================================
+SCHEMA EXPORTED
+================================================================================

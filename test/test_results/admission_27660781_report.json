@@ -1,0 +1,51 @@
+{
+  "admission_id": 27660781,
+  "timestamp": "2025-12-28 00:25:21",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 99.82352941176471,
+      "min": 97.0,
+      "max": 103.0,
+      "std": 1.7230374724560953
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 19.58823529411765,
+      "min": 15.0,
+      "max": 25.0,
+      "std": 2.7237263300682883
+    },
+    "SpO2": {
+      "mean": 97.6470588235294,
+      "min": 95.0,
+      "max": 99.0,
+      "std": 1.1852612752711698
+    },
+    "Temperature": {
+      "mean": 98.34,
+      "min": 98.0,
+      "max": 98.7,
+      "std": 0.25768197453450464
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: SURGERY\n \nAllergies: \nPenicillins\n \nAttending: ___.\n \nChief Complaint:\nContinued purulent drainage, increased drainage around drain\ninsertion site, 10 kg weight loss\n\n \nMajor Surgical or Invasive Procedure:\n___: ERCP, drain exchange with upsize, feeding tube \nplacement\n___: Central line placement\n___: PPFT replaced\n___: CT guided drain upsiz",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.43269237875938416,
+    "fusion_final_score": 0.439103364944458,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

@@ -1,0 +1,51 @@
+{
+  "admission_id": 26048429,
+  "timestamp": "2025-12-28 00:24:21",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 104.66666666666667,
+      "min": 93.0,
+      "max": 112.0,
+      "std": 5.629288488689213
+    },
+    "Systolic_BP": {
+      "mean": 65.73333333333333,
+      "min": 60.0,
+      "max": 74.0,
+      "std": 3.785351884420904
+    },
+    "Diastolic_BP": {
+      "mean": 90.06666666666666,
+      "min": 82.0,
+      "max": 101.0,
+      "std": 5.87045332340035
+    },
+    "Respiratory_Rate": {
+      "mean": 9.4,
+      "min": 6.0,
+      "max": 13.0,
+      "std": 2.0912516188477497
+    },
+    "SpO2": {
+      "mean": 94.53333333333333,
+      "min": 92.0,
+      "max": 96.0,
+      "std": 1.2036980056845192
+    },
+    "Temperature": {
+      "mean": 97.55,
+      "min": 97.0,
+      "max": 98.3,
+      "std": 0.5024937810560431
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nPenicillins / Shellfish Derived\n \nAttending: ___.\n \nChief Complaint:\nEsophageal cancer.\n\n \nMajor Surgical or Invasive Procedure:\n___: Minimally-invasive esophagectomy surgery(thoracoscopic \nlaparoscopic ___, laparoscopic jejunostomy tube, \npericardial fat pad buttress (adjusted adjacent tissue \ntransfer).\n\n \nHis",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.24520155787467957,
+    "fusion_final_score": 0.4773438572883606,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

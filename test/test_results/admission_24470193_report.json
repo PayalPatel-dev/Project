@@ -1,0 +1,51 @@
+{
+  "admission_id": 24470193,
+  "timestamp": "2025-12-28 00:22:51",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 94.03571428571429,
+      "min": 81.0,
+      "max": 106.0,
+      "std": 7.359309667048276
+    },
+    "Systolic_BP": {
+      "mean": 70.96428571428571,
+      "min": 60.0,
+      "max": 89.0,
+      "std": 8.401667108620861
+    },
+    "Diastolic_BP": {
+      "mean": 95.21428571428571,
+      "min": 78.0,
+      "max": 119.0,
+      "std": 9.949361583456868
+    },
+    "Respiratory_Rate": {
+      "mean": 18.071428571428573,
+      "min": 14.0,
+      "max": 24.5,
+      "std": 3.7836921823282936
+    },
+    "SpO2": {
+      "mean": 96.77272727272727,
+      "min": 95.0,
+      "max": 99.0,
+      "std": 1.1552968206489849
+    },
+    "Temperature": {
+      "mean": 99.3,
+      "min": 99.3,
+      "max": 99.3,
+      "std": 0.0
+    }
+  },
+  "clinical_note_preview": " \nName:  ___              Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: NEUROSURGERY\n \nAllergies: \nquinidine gluconate\n \nAttending: ___.\n \nChief Complaint:\nIntraventricular bleed\n\n \nMajor Surgical or Invasive Procedure:\nNONE\n \nHistory of Present Illness:\nHPI:\nMr. ___ is a ___ year-old male with a past medical history \nof\natrial fibrillation on coumadin, HTN, HLD.  Per report from the\noutside hospital and his wife, t",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9602572917938232,
+    "fusion_final_score": 0.31842905282974243,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

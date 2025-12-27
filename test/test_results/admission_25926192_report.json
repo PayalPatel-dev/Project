@@ -1,0 +1,51 @@
+{
+  "admission_id": 25926192,
+  "timestamp": "2025-12-28 00:24:16",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 110.3529411764706,
+      "min": 95.0,
+      "max": 126.0,
+      "std": 8.615588993355134
+    },
+    "Systolic_BP": {
+      "mean": 61.45454545454545,
+      "min": 55.0,
+      "max": 67.0,
+      "std": 3.7986513483229416
+    },
+    "Diastolic_BP": {
+      "mean": 78.81818181818181,
+      "min": 73.0,
+      "max": 85.0,
+      "std": 4.281422487024225
+    },
+    "Respiratory_Rate": {
+      "mean": 18.823529411764707,
+      "min": 10.0,
+      "max": 27.0,
+      "std": 3.8230768962992756
+    },
+    "SpO2": {
+      "mean": 97.29411764705883,
+      "min": 95.0,
+      "max": 100.0,
+      "std": 1.2725475089872904
+    },
+    "Temperature": {
+      "mean": 98.85000000000001,
+      "min": 98.6,
+      "max": 99.3,
+      "std": 0.27537852736430624
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                     Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___\n \nChief Complaint:\ncoronary arttery disease\n \nMajor Surgical or Invasive Procedure:\n___ - Coronary artery bypass graft x5 (left internal mammary \nartery to the ramus artery and saphenous vein grafts to left \nanterior descending artery, diagonal, obtu",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7286016345024109,
+    "fusion_final_score": 0.37782323360443115,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

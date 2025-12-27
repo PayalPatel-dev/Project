@@ -1,0 +1,51 @@
+{
+  "admission_id": 22580999,
+  "timestamp": "2025-12-28 00:21:05",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 75.76470588235294,
+      "min": 69.0,
+      "max": 86.0,
+      "std": 5.263966428516963
+    },
+    "Systolic_BP": {
+      "mean": 59.8,
+      "min": 54.0,
+      "max": 64.0,
+      "std": 3.4583232931581165
+    },
+    "Diastolic_BP": {
+      "mean": 73.5,
+      "min": 66.0,
+      "max": 81.0,
+      "std": 4.8425200051213
+    },
+    "Respiratory_Rate": {
+      "mean": 13.117647058823529,
+      "min": 10.0,
+      "max": 21.0,
+      "std": 3.1786484908485404
+    },
+    "SpO2": {
+      "mean": 97.88235294117646,
+      "min": 95.0,
+      "max": 99.0,
+      "std": 1.0782531046954917
+    },
+    "Temperature": {
+      "mean": 98.025,
+      "min": 97.6,
+      "max": 98.5,
+      "std": 0.32691742076555147
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nPenicillins\n \nAttending: ___.\n \nChief Complaint:\nChest pain\n \nMajor Surgical or Invasive Procedure:\n___:  CABG x 4 (LIMA>LAD, OM1, OM2, RCA) \n\n \nHistory of Present Illness:\n___ old male that looks younger for his years. In Janurary of \nthis year he developed exertional chest pain with snow blowing. \nThis chest pa",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.6720886826515198,
+    "fusion_final_score": 0.3892919719219208,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

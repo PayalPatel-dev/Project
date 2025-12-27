@@ -1,0 +1,51 @@
+{
+  "admission_id": 21457723,
+  "timestamp": "2025-12-28 00:20:06",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 76.93333333333334,
+      "min": 74.0,
+      "max": 83.0,
+      "std": 2.4890872936792627
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 25.333333333333332,
+      "min": 19.0,
+      "max": 31.0,
+      "std": 3.8239014399199966
+    },
+    "SpO2": {
+      "mean": 97.26666666666667,
+      "min": 94.0,
+      "max": 100.0,
+      "std": 1.6819301082057152
+    },
+    "Temperature": {
+      "mean": 97.92,
+      "min": 97.8,
+      "max": 98.4,
+      "std": 0.2400000000000034
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nWellbutrin / sertraline / allopurinol / Uloric\n \nAttending: ___.\n \nChief Complaint:\nhematuria \n \nMajor Surgical or Invasive Procedure:\nnone\n \nHistory of Present Illness:\n___ woman with myeloproliferative disorder/MDS overlap \nsyndrome with massive splenomegaly and splenic infarcts s/p \nsplenic radiation, hx of a PICC-",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9247189164161682,
+    "fusion_final_score": 0.3294660449028015,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

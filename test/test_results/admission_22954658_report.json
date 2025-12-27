@@ -1,0 +1,51 @@
+{
+  "admission_id": 22954658,
+  "timestamp": "2025-12-28 00:21:29",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 66.075,
+      "min": 57.5,
+      "max": 78.0,
+      "std": 6.124285672631545
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 18.75,
+      "min": 13.0,
+      "max": 26.0,
+      "std": 3.6038174204584785
+    },
+    "SpO2": {
+      "mean": 97.8,
+      "min": 94.0,
+      "max": 100.0,
+      "std": 1.5033296378372907
+    },
+    "Temperature": {
+      "mean": 98.66666666666667,
+      "min": 98.1,
+      "max": 99.3,
+      "std": 0.4853406592853682
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nChest pain\n \nMajor Surgical or Invasive Procedure:\n___ - Percutaneous coronary intervention with thrombectomy \nand no stent \n\n \nHistory of Present Illness:\nMr. ___ is a healthy ___ year-old male who presented with \nback pain and chest pain ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.6336086392402649,
+    "fusion_final_score": 0.39717260003089905,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

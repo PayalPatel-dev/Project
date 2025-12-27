@@ -1,6 +1,6 @@
 {
   "patient_id": "PT_NORMAL_001",
-  "timestamp": "2025-12-15 22:01:56",
+  "timestamp": "2025-12-15 02:02:39",
   "patient_type": "normal",
   "vital_signs_summary": {
     "Heart_Rate": {
@@ -40,11 +40,11 @@
       "std": 0.0
     }
   },
-  "clinical_note": "The patient's vital signs over the past 24 hours show a persistently elevated respiratory rate and markedly low oxygen saturation, which are concerning. While heart rate and blood pressure are within their respective ranges, the hypoxemia is a priority that requires further investigation and management. The temperature has remained stable and normal.",
+  "clinical_note": "The patient's vital signs over the past 24 hours show a stable temperature and heart rate within acceptable ranges. However, the systolic blood pressure is at the lower end of normal, and the respiratory rate and oxygen saturation are significantly elevated and concerningly low, respectively. These findings require further investigation and intervention.",
   "predictions": {
     "lstm_vital_score": 0.0006142696365714073,
-    "clinical_classifier_score": 0.7064571380615234,
-    "fusion_final_score": 0.014245575293898582,
+    "clinical_classifier_score": 0.613349974155426,
+    "fusion_final_score": 0.014989860355854034,
     "risk_category": "LOW RISK"
   },
   "decision": "NO_ALERT"

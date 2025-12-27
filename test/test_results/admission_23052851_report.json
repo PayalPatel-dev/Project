@@ -1,0 +1,51 @@
+{
+  "admission_id": 23052851,
+  "timestamp": "2025-12-28 00:21:42",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 118.31818181818181,
+      "min": 105.0,
+      "max": 132.0,
+      "std": 7.9623338494802205
+    },
+    "Systolic_BP": {
+      "mean": 60.07692307692308,
+      "min": 49.0,
+      "max": 83.0,
+      "std": 7.5799486345077
+    },
+    "Diastolic_BP": {
+      "mean": 76.23076923076923,
+      "min": 70.0,
+      "max": 97.0,
+      "std": 6.784074633953643
+    },
+    "Respiratory_Rate": {
+      "mean": 18.90909090909091,
+      "min": 13.0,
+      "max": 25.0,
+      "std": 3.4497574474564137
+    },
+    "SpO2": {
+      "mean": 97.0,
+      "min": 95.0,
+      "max": 99.0,
+      "std": 0.9045340337332909
+    },
+    "Temperature": {
+      "mean": 97.61666666666667,
+      "min": 97.1,
+      "max": 98.5,
+      "std": 0.48448139512495597
+    }
+  },
+  "clinical_note_preview": " \nName:  ___              ___ No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nHypotension\n \nMajor Surgical or Invasive Procedure:\nPEG tube placement ___\n\n \nHistory of Present Illness:\n___ yo female with HTN, HLD, hypothyroidism, type II DM, recent\nleft MCA stroke, AF on dabigatran, mixed systolic-diastolic CHF\n(EF 42% on",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.9034737348556519,
+    "fusion_final_score": 0.33615607023239136,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

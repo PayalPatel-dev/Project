@@ -1,0 +1,51 @@
+{
+  "admission_id": 23559586,
+  "timestamp": "2025-12-28 00:22:10",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 137.25,
+      "min": 121.0,
+      "max": 149.0,
+      "std": 9.079509898667439
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 18.75,
+      "min": 10.0,
+      "max": 38.0,
+      "std": 7.830229881682913
+    },
+    "SpO2": {
+      "mean": 96.07142857142857,
+      "min": 92.0,
+      "max": 100.0,
+      "std": 1.7510929531616086
+    },
+    "Temperature": {
+      "mean": 97.26,
+      "min": 96.0,
+      "max": 97.8,
+      "std": 0.6437390775772425
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                 Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nSacral ulcer\n \nMajor Surgical or Invasive Procedure:\nUretropelvic junction stent replacement\nIntubation\nPICC line placement\nRight Chest tube placement\n \nHistory of Present Illness:\nMs. ___ is a ___ year-old woman a PMH significant for AFib ",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.8672844767570496,
+    "fusion_final_score": 0.3477034270763397,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

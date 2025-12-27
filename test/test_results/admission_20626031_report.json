@@ -1,0 +1,51 @@
+{
+  "admission_id": 20626031,
+  "timestamp": "2025-12-28 00:19:32",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 71.26470588235294,
+      "min": 60.0,
+      "max": 82.0,
+      "std": 5.2190760030161965
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 16.61764705882353,
+      "min": 11.0,
+      "max": 25.0,
+      "std": 4.4837268235669425
+    },
+    "SpO2": {
+      "mean": 95.38235294117646,
+      "min": 92.0,
+      "max": 98.0,
+      "std": 1.7449878793166267
+    },
+    "Temperature": {
+      "mean": 98.32857142857142,
+      "min": 98.1,
+      "max": 98.6,
+      "std": 0.16659862556700816
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                   Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: CARDIOTHORACIC\n \nAllergies: \nPenicillins\n \nAttending: ___\n \nChief Complaint:\nChest pain\n \nMajor Surgical or Invasive Procedure:\n___:\n1. Urgent pump assisted coronary artery bypass graft x3:\n    Left internal mammary artery to left anterior descending\n    artery, saphenous vein graft to diagonal and obtuse\n    marginal arteries.\n2. Endoscopi",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7633464932441711,
+    "fusion_final_score": 0.3708385229110718,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

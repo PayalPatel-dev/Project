@@ -1,0 +1,51 @@
+{
+  "admission_id": 28506150,
+  "timestamp": "2025-12-28 00:26:35",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 70.26666666666667,
+      "min": 62.0,
+      "max": 85.0,
+      "std": 5.8590860113919545
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 20.6,
+      "min": 17.0,
+      "max": 25.0,
+      "std": 1.781385228784985
+    },
+    "SpO2": {
+      "mean": 99.4,
+      "min": 98.0,
+      "max": 100.0,
+      "std": 0.7999999999999999
+    },
+    "Temperature": {
+      "mean": 98.2,
+      "min": 97.8,
+      "max": 98.5,
+      "std": 0.2549509756796401
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nZosyn\n \nAttending: ___.\n \nChief Complaint:\nDecreased level of consciousness\n \nMajor Surgical or Invasive Procedure:\nNone\n \nHistory of Present Illness:\nMs. ___ is a ___ yo female with history of ALS, ventilator \ndependence with tracheostomy and PEG, history of seizure \ndisorder, nonverbal but interactive at baseline, wh",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7747552990913391,
+    "fusion_final_score": 0.36855658888816833,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

@@ -1,0 +1,51 @@
+{
+  "admission_id": 25260176,
+  "timestamp": "2025-12-28 00:23:59",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 81.41666666666667,
+      "min": 69.0,
+      "max": 92.0,
+      "std": 6.945722104688293
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Respiratory_Rate": {
+      "mean": 15.583333333333334,
+      "min": 10.0,
+      "max": 30.0,
+      "std": 5.8374985129667385
+    },
+    "SpO2": {
+      "mean": 95.45454545454545,
+      "min": 92.0,
+      "max": 97.0,
+      "std": 1.6160353486028343
+    },
+    "Temperature": {
+      "mean": 97.9,
+      "min": 97.6,
+      "max": 98.2,
+      "std": 0.30000000000000426
+    }
+  },
+  "clinical_note_preview": " \nName:  ___                  Unit No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   M\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nAssault/EtOH withdrawal\n \nMajor Surgical or Invasive Procedure:\nnone\n \nHistory of Present Illness:\n ___ with past medical history of ETOH withdrawal and seizure \nwho presents after an assault early on AM of admission. In the \nED, he report",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.7754436731338501,
+    "fusion_final_score": 0.3684190809726715,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}

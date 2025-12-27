@@ -1,0 +1,51 @@
+{
+  "admission_id": 28662225,
+  "timestamp": "2025-12-28 00:26:45",
+  "data_source": "MIMIC-IV (real hospital data)",
+  "vital_signs_summary": {
+    "Heart_Rate": {
+      "mean": 91.15789473684211,
+      "min": 85.0,
+      "max": 101.0,
+      "std": 4.307437361181079
+    },
+    "Systolic_BP": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0
+    },
+    "Diastolic_BP": {
+      "mean": 72.0,
+      "min": 62.0,
+      "max": 83.0,
+      "std": 8.602325267042627
+    },
+    "Respiratory_Rate": {
+      "mean": 22.63157894736842,
+      "min": 11.0,
+      "max": 28.0,
+      "std": 4.3915052726322426
+    },
+    "SpO2": {
+      "mean": 94.52631578947368,
+      "min": 93.0,
+      "max": 97.0,
+      "std": 0.9930506454796425
+    },
+    "Temperature": {
+      "mean": 98.08000000000001,
+      "min": 97.6,
+      "max": 98.4,
+      "std": 0.2712931993250146
+    }
+  },
+  "clinical_note_preview": " \nName:  ___               ___ No:   ___\n \nAdmission Date:  ___              Discharge Date:   ___\n \nDate of Birth:  ___             Sex:   F\n \nService: MEDICINE\n \nAllergies: \nNo Known Allergies / Adverse Drug Reactions\n \nAttending: ___.\n \nChief Complaint:\nDiarrhea - Transfer to MICU for Hypoxia\n \nMajor Surgical or Invasive Procedure:\n___ line placement\nRight pigtail pleural catheter placement\n \nHistory of Present Illness:\nPt is an ___ year-old female with h/o Sjogren's syndrome, IBS, \nwho prese",
+  "predictions": {
+    "lstm_vital_score": 0.5,
+    "clinical_classifier_score": 0.616823136806488,
+    "fusion_final_score": 0.4006273150444031,
+    "risk_category": "MEDIUM RISK"
+  },
+  "decision": "MONITOR"
+}
