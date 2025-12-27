@@ -5,7 +5,8 @@
 **Status**: ✅ COMPLETE ROOT CAUSE REFACTOR
 
 Successfully replaced the Gemini API-based synthetic note generation with a complete data pipeline that:
-- Queries real hospital vitals from `mimic_iv.db` 
+
+- Queries real hospital vitals from `mimic_iv.db`
 - Queries real clinical notes from `mimic_notes_complete_records.db`
 - Matches vitals with notes using `hadm_id` (hospital admission ID)
 - Reshapes vitals into (24, 6) arrays for LSTM processing
@@ -17,9 +18,11 @@ Successfully replaced the Gemini API-based synthetic note generation with a comp
 ## Files Created
 
 ### 1. **test_with_real_mimic_data.py** (Main Production Script)
+
 Complete end-to-end pipeline with real data.
 
 **Key Features**:
+
 - `MIMICDataLoader` class: Unified database interface
 - Separate database connections to mimic_iv.db and mimic_notes_complete_records.db
 - Vital extraction with all 6 medical parameters (HR, SBP, DBP, RR, SpO2, Temp)
@@ -28,18 +31,22 @@ Complete end-to-end pipeline with real data.
 - JSON report generation with predictions
 
 **Usage**:
+
 ```bash
 python test/test_with_real_mimic_data.py
 ```
 
 **Output Files**:
+
 - `admission_{hadm_id}_report.json` - Individual admission reports
 - `real_data_predictions_summary.json` - Aggregated summary
 
 ### 2. **test_data_pipeline_only.py** (Validation Script)
+
 Lightweight test of data loading/reshaping WITHOUT model loading.
 
 **Key Features**:
+
 - Tests database connectivity
 - Validates vital signs extraction (1,400+ measurements per admission)
 - Validates vital reshaping to (24, 6) format
@@ -47,15 +54,18 @@ Lightweight test of data loading/reshaping WITHOUT model loading.
 - Generates JSON validation report
 
 **Status**: ✅ ALL TESTS PASSED
+
 - 3 admissions tested
 - All have complete vital signs (394-1,431 measurements each)
 - All have discharge notes (7,500-25,600 characters each)
 - All vital arrays correctly reshaped to (24, 6)
 
 ### 3. **test_database_connectivity.py** (Quick Diagnostic)
+
 Minimal database connectivity check.
 
 **Tests**:
+
 - mimic_iv.db accessibility (668K chartevents, 140 icustays, 4K d_items)
 - mimic_notes_complete_records.db accessibility (216 discharge, 1,403 radiology)
 - Sample admission discovery
@@ -116,18 +126,19 @@ REQUEST: predict_with_real_data(hadm_id=20044587)
 
 All vital signs extracted from MIMIC-IV database with standardized itemids:
 
-| Vital | itemid | Unit | Notes |
-|-------|--------|------|-------|
-| Heart Rate (HR) | 220045 | bpm | ~17 measurements per admission |
-| Systolic BP (SBP) | 220051 | mmHg | ~10 measurements per admission |
-| Diastolic BP (DBP) | 220052 | mmHg | ~10 measurements per admission |
-| Respiratory Rate (RR) | 220210 | breaths/min | ~17 measurements |
-| Oxygen Saturation (SpO2) | 220277 | % | ~17 measurements |
-| Temperature (Temp) | 223761 | °C | ~3-6 measurements |
+| Vital                    | itemid | Unit        | Notes                          |
+| ------------------------ | ------ | ----------- | ------------------------------ |
+| Heart Rate (HR)          | 220045 | bpm         | ~17 measurements per admission |
+| Systolic BP (SBP)        | 220051 | mmHg        | ~10 measurements per admission |
+| Diastolic BP (DBP)       | 220052 | mmHg        | ~10 measurements per admission |
+| Respiratory Rate (RR)    | 220210 | breaths/min | ~17 measurements               |
+| Oxygen Saturation (SpO2) | 220277 | %           | ~17 measurements               |
+| Temperature (Temp)       | 223761 | °C          | ~3-6 measurements              |
 
 **Total Measurements Per Admission**: 300-1,400+ measurements over 24-hour period
 
 **Reshaping Logic**:
+
 - Sort by timestamp
 - Group by hour of day (24 hours)
 - Aggregate multiple measurements per hour (mean)
@@ -140,24 +151,28 @@ All vital signs extracted from MIMIC-IV database with standardized itemids:
 ### Sample Test Results (3 Admissions)
 
 **Admission 20044587**:
+
 - Vital measurements: 394
 - Vital hours available: 17/24 (71%)
 - Clinical note: 7,831 characters
 - Status: ✅ Complete
 
 **Admission 20199380**:
+
 - Vital measurements: 295
 - Vital hours available: 16/24 (67%)
 - Clinical note: 7,548 characters
 - Status: ✅ Complete
 
 **Admission 20214994**:
+
 - Vital measurements: 1,431
 - Vital hours available: 21/24 (88%)
 - Clinical note: 25,606 characters
 - Status: ✅ Complete
 
 **Key Findings**:
+
 - 7 admissions in database have BOTH vitals AND discharge notes
 - All admissions have sufficient vital measurements (>250)
 - Clinical notes range from 7.5k to 25.6k characters
@@ -168,6 +183,7 @@ All vital signs extracted from MIMIC-IV database with standardized itemids:
 ## From Synthetic to Real Data: Comparison
 
 ### BEFORE (Gemini API)
+
 ```
 synthetic_vitals (from processed_data.npz)
   ↓ summarize
@@ -181,6 +197,7 @@ report (synthetic, non-clinical)
 ```
 
 **Problems**:
+
 - ❌ Uses random/synthetic data, not real patients
 - ❌ Clinical notes AI-generated, not written by doctors
 - ❌ Depends on Gemini API (latency, cost, rate limits)
@@ -188,6 +205,7 @@ report (synthetic, non-clinical)
 - ❌ Single test case only (normal vs abnormal synthetic)
 
 ### AFTER (Real MIMIC Data)
+
 ```
 mimic_iv.db: chartevents (668K real measurements)
   ↓ filter by hadm_id + itemid
@@ -211,6 +229,7 @@ report (based on real hospital data)
 ```
 
 **Benefits**:
+
 - ✅ Real patient data from MIMIC-IV
 - ✅ Actual clinical notes written by physicians
 - ✅ No API dependency (offline, instant)
@@ -255,7 +274,7 @@ class MIMICDataLoader:
         """Query real vitals from mimic_iv.db"""
         query = "SELECT ce.charttime, ce.itemid, ce.valuenum FROM chartevents..."
         return pd.read_sql_query(query, self.mimic_iv_conn)
-    
+
     def get_discharge_notes(self, hadm_id):
         """Query real notes from mimic_notes_complete_records.db"""
         query = "SELECT text FROM discharge WHERE hadm_id = ?"
@@ -293,11 +312,13 @@ report = predict_with_real_data(hadm_id, data_loader)
 ## Testing & Validation
 
 ### Test 1: Database Connectivity ✅
+
 - mimic_iv.db: 668,862 chartevents
 - mimic_notes_complete_records.db: 216 discharge + 1,403 radiology
 - Status: Both databases accessible
 
 ### Test 2: Data Availability ✅
+
 - Found 7 admissions with BOTH vitals AND notes
 - 3 sample admissions tested
 - All have 250-1,400+ vital measurements
@@ -305,6 +326,7 @@ report = predict_with_real_data(hadm_id, data_loader)
 - Status: Sufficient data for full pipeline
 
 ### Test 3: Data Pipeline ✅
+
 - Vital extraction: 394-1,431 measurements per admission
 - Vital reshaping: All produce (24, 6) arrays
 - Note loading: 7,500-25,600 characters per admission
@@ -312,11 +334,13 @@ report = predict_with_real_data(hadm_id, data_loader)
 - Status: Complete data pipeline functional
 
 ### Ready for Full Model Predictions
+
 ```bash
 python test/test_with_real_mimic_data.py
 ```
 
 Will produce:
+
 - 3 admission reports with real LSTM+Classifier+Fusion predictions
 - JSON files with model scores and risk categories
 - Summary comparison of all predictions
@@ -343,6 +367,7 @@ Will produce:
 ## Next Steps (If Needed)
 
 1. **Run full model predictions**:
+
    ```bash
    python test/test_with_real_mimic_data.py
    ```
