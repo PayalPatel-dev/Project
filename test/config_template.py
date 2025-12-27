@@ -5,9 +5,9 @@
 GEMINI_API_KEY = "your-api-key-here"
 
 # Model Paths
-LSTM_MODEL_PATH = "../logs/best_model_simple.pt"
-CLINICAL_CLASSIFIER_PATH = "../logs/best_clinical_classifier.pt"
-FUSION_MODEL_PATH = "../logs/stacking_fusion_model.pt"
+LSTM_MODEL_PATH = "../logs/models/best_model_simple.pt"
+CLINICAL_CLASSIFIER_PATH = "../logs/models/best_clinical_classifier.pt"
+FUSION_MODEL_PATH = "../logs/models/stacking_fusion_model.pt"
 
 # Vital Signs Configuration
 VITAL_SIGNS_FEATURES = ["Heart_Rate", "Systolic_BP", "Diastolic_BP", "Respiratory_Rate", "SpO2", "Temperature"]

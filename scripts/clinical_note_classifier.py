@@ -32,16 +32,21 @@ print("="*80)
 # Step 1: Load data
 print("\n[STEP 1] Loading clinical embeddings and labels...")
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+logs_data_dir = os.path.join(script_dir, "..", "logs", "data")
+
 # Load embeddings
-clinical_embeddings = np.load('clinical_embeddings.npy', allow_pickle=False)
+embeddings_file = os.path.join(logs_data_dir, 'clinical_embeddings.npy')
+clinical_embeddings = np.load(embeddings_file, allow_pickle=False)
 print(f"   Embeddings shape: {clinical_embeddings.shape}")
 
 # Load labels and features
-clinical_features = np.load('logs/clinical_features.npy') if os.path.exists('logs/clinical_features.npy') else None
+features_file = os.path.join(logs_data_dir, 'clinical_features.npy')
+clinical_features = np.load(features_file) if os.path.exists(features_file) else None
 
 # Create labels from deterioration column
 import pandas as pd
-features_df = pd.read_csv('clinical_features.csv')
+features_df = pd.read_csv(os.path.join(logs_data_dir, 'clinical_features.csv'))
 y = features_df['has_deterioration'].values.astype(np.float32)
 print(f"   Labels shape: {y.shape}")
 print(f"   Positive samples: {(y == 1).sum()} ({100*(y==1).sum()/len(y):.2f}%)")
@@ -191,8 +196,9 @@ for epoch in range(1, EPOCHS + 1):
     if val_loss < best_val_loss:
         best_val_loss = val_loss
         patience_counter = 0
-        # Save best model in logs directory
-        torch.save(model.state_dict(), 'logs/best_clinical_classifier.pt')
+        # Save best model in logs/models directory
+        model_path = os.path.join(os.path.dirname(__file__), "..", "logs", "models", "best_clinical_classifier.pt")
+        torch.save(model.state_dict(), model_path)
         print(f"   [BEST] Model saved!")
     else:
         patience_counter += 1
@@ -205,7 +211,8 @@ print("\n" + "="*80)
 print("[STEP 5] Evaluating on test set...")
 print("="*80)
 
-model.load_state_dict(torch.load('logs/best_clinical_classifier.pt'))
+model_path = os.path.join(os.path.dirname(__file__), "..", "logs", "models", "best_clinical_classifier.pt")
+model.load_state_dict(torch.load(model_path))
 model.eval()
 
 with torch.no_grad():

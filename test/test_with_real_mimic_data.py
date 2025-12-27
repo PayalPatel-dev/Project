@@ -19,7 +19,6 @@ from pathlib import Path
 # Import config and utilities
 import config
 
-
 # ============================================================================
 # DATABASE UTILITIES
 # ============================================================================
@@ -210,27 +209,40 @@ def reshape_vitals_to_lstm_format(vitals_df, target_hours=24):
     vital_itemids = [220045, 220051, 220052, 220210, 220277, 223761]
     
     if vitals_df is None or len(vitals_df) == 0:
-        # Return zeros if no data
         return np.zeros((target_hours, 6))
     
-    # Extract most recent 24-hour window
     vitals_df = vitals_df.copy()
-    vitals_df['date'] = vitals_df['charttime'].dt.date
-    vitals_df['hour'] = vitals_df['charttime'].dt.hour
+    vitals_df['charttime'] = pd.to_datetime(vitals_df['charttime'])
     
-    # Get most recent date with data
-    target_date = vitals_df['date'].max()
-    day_data = vitals_df[vitals_df['date'] == target_date].copy()
+    # Extract the last 24-hour window (across day boundaries)
+    end_time = vitals_df['charttime'].max()
+    start_time = end_time - pd.Timedelta(hours=target_hours)
     
-    # Create pivot table: hours x vitals
-    pivot = day_data.pivot_table(
-        index='hour',
+    window_data = vitals_df[
+        (vitals_df['charttime'] >= start_time) & 
+        (vitals_df['charttime'] <= end_time)
+    ].copy()
+    
+    if len(window_data) == 0:
+        return np.zeros((target_hours, 6))
+    
+    # Calculate hour offset from start_time
+    window_data['hour_from_start'] = (
+        (window_data['charttime'] - start_time).dt.total_seconds() / 3600
+    ).astype(int)
+    
+    # Remove readings outside the 24-hour window
+    window_data = window_data[window_data['hour_from_start'] < target_hours]
+    
+    # Create pivot table
+    pivot = window_data.pivot_table(
+        index='hour_from_start',
         columns='itemid',
         values='valuenum',
-        aggfunc='mean'  # If multiple values per hour, take mean
+        aggfunc='mean'
     )
     
-    # Create output array (24 hours x 6 vitals)
+    # Create output array
     vital_array = np.zeros((target_hours, 6))
     
     # Fill in available data
@@ -238,6 +250,26 @@ def reshape_vitals_to_lstm_format(vitals_df, target_hours=24):
         if itemid in pivot.columns:
             values = pivot[itemid].values
             vital_array[:len(values), i] = values
+    
+    # Interpolate missing values for each vital sign
+    for i in range(6):
+        col = vital_array[:, i]
+        non_zero_mask = col > 0
+        non_zero_count = non_zero_mask.sum()
+        
+        # Only interpolate if we have at least 2 non-zero points
+        if non_zero_count >= 2:
+            indices = np.where(non_zero_mask)[0]
+            values = col[non_zero_mask]
+            
+            # Interpolate across the entire column
+            vital_array[:, i] = np.interp(
+                np.arange(target_hours),
+                indices,
+                values,
+                left=values[0],      # Extend first value backwards
+                right=values[-1]     # Extend last value forwards
+            )
     
     return vital_array
 
@@ -282,40 +314,21 @@ def summarize_vital_signs(vital_array):
 # MODEL DEFINITIONS
 # ============================================================================
 
-class WorkingLSTM(nn.Module):
-    """LSTM for vital signs classification"""
-    def __init__(self, input_size=6, hidden_size=64, num_layers=2, dropout=0.3):
+class SimpleLSTM(nn.Module):
+    """Simplified LSTM - matches trained model architecture"""
+    def __init__(self, input_size, hidden_size=128, num_layers=2):
         super().__init__()
-        self.lstm = nn.LSTM(
-            input_size=input_size,
-            hidden_size=hidden_size,
-            num_layers=num_layers,
-            batch_first=True,
-            dropout=dropout
-        )
-        self.fc1 = nn.Linear(hidden_size, 32)
-        self.fc2 = nn.Linear(32, 16)
-        self.fc3 = nn.Linear(16, 1)
-        
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=True, dropout=0.3)
+        self.fc1 = nn.Linear(hidden_size, 64)
+        self.fc2 = nn.Linear(64, 32)
+        self.fc3 = nn.Linear(32, 1)
         self.relu = nn.ReLU()
-        self.dropout = nn.Dropout(0.3)
-        self.batch_norm1 = nn.BatchNorm1d(32)
-        self.batch_norm2 = nn.BatchNorm1d(16)
-    
+        
     def forward(self, x):
-        lstm_out, (h_n, c_n) = self.lstm(x)
+        lstm_out, _ = self.lstm(x)
         last_hidden = lstm_out[:, -1, :]
-        
-        out = self.fc1(last_hidden)
-        out = self.batch_norm1(out)
-        out = self.relu(out)
-        out = self.dropout(out)
-        
-        out = self.fc2(out)
-        out = self.batch_norm2(out)
-        out = self.relu(out)
-        out = self.dropout(out)
-        
+        out = self.relu(self.fc1(last_hidden))
+        out = self.relu(self.fc2(out))
         out = self.fc3(out)
         return out
 
@@ -416,8 +429,19 @@ def predict_with_real_data(hadm_id, data_loader, device=None):
     vital_array = reshape_vitals_to_lstm_format(vitals_df)
     vital_summary = summarize_vital_signs(vital_array)
     
+    # Data quality check
+    non_zero_count = np.count_nonzero(vital_array)
+    total_elements = vital_array.size
+    sparsity = 1 - (non_zero_count / total_elements)
+    
     print(f"[VITALS] [OK] Loaded {len(vitals_df)} vital measurements")
-    print(f"         Reshaped to LSTM format: {vital_array.shape}\n")
+    print(f"         Reshaped to LSTM format: {vital_array.shape}")
+    print(f"         Data quality: {non_zero_count}/{total_elements} readings")
+    print(f"         Sparsity: {sparsity:.1%}\n")
+    
+    if sparsity > 0.7:
+        print(f"[WARN] ⚠️  Vital data is very sparse ({sparsity:.1%} missing)")
+        print(f"        LSTM predictions may be less reliable\n")
     
     # -------- STEP 2: LOAD CLINICAL NOTES --------
     print("[NOTES] Loading discharge summary from mimic_notes_complete_records.db...")
@@ -457,7 +481,7 @@ def predict_with_real_data(hadm_id, data_loader, device=None):
     fusion_path = os.path.join(script_dir, config.FUSION_MODEL_PATH)
     
     # Load LSTM
-    lstm_model = WorkingLSTM(input_size=6, hidden_size=64, num_layers=2)
+    lstm_model = SimpleLSTM(input_size=6, hidden_size=128, num_layers=2)
     lstm_model.load_state_dict(torch.load(lstm_path, map_location=device, weights_only=False))
     lstm_model.to(device)
     lstm_model.eval()
@@ -484,9 +508,12 @@ def predict_with_real_data(hadm_id, data_loader, device=None):
         lstm_logits = lstm_model(vital_tensor).squeeze()
         vital_score = torch.sigmoid(lstm_logits).cpu().item()
         
-        # Handle NaN case (all-zero vital data)
+        # Handle invalid cases
         if np.isnan(vital_score) or np.isinf(vital_score):
-            vital_score = 0.5  # Default to neutral score
+            print(f"[LSTM] [WARN] Invalid output (NaN/Inf)")
+            vital_score = 0.5
+        elif abs(vital_score - 0.5) < 0.001:
+            print(f"[LSTM] [WARN] Output suspiciously close to 0.5 (sparsity: {sparsity:.1%})")
     
     print(f"[LSTM] [OK] Vital signs risk score: {vital_score:.4f}\n")
     
@@ -602,8 +629,8 @@ if __name__ == "__main__":
     
     # Initialize data loader
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    mimic_iv_path = os.path.join(script_dir, "..", "mimic_iv.db")
-    notes_path = os.path.join(script_dir, "..", "mimic_notes_complete_records.db")
+    mimic_iv_path = os.path.join(script_dir, "..", "data", "mimic_iv.db")
+    notes_path = os.path.join(script_dir, "..", "data", "mimic_notes_complete_records.db")
     
     try:
         data_loader = MIMICDataLoader(mimic_iv_path, notes_path)

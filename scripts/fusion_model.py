@@ -25,16 +25,18 @@ print("="*80)
 print("\n[STEP 1] Loading predictions from Step 1 (LSTM) and Step 2 (Clinical Classifier)...")
 
 # LSTM predictions on vital signs test set
-lstm_model_path = 'logs/best_model_simple.pt'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+lstm_model_path = os.path.join(script_dir, "..", "logs", "models", "best_model_simple.pt")
 if not os.path.exists(lstm_model_path):
-    lstm_model_path = 'best_model_simple.pt'
+    lstm_model_path = os.path.join(script_dir, "..", "logs", "models", "best_model_simple.pt")
 
 # Load LSTM model to generate predictions
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"   Device: {device}")
 
 # Load vital signs data
-data = np.load('processed_data.npz')
+data_path = os.path.join(script_dir, "..", "logs", "data", "processed_data.npz")
+data = np.load(data_path)
 X_test_vital = torch.tensor(data['X_test'], dtype=torch.float32)
 y_test = data['y_test']
 print(f"   Vital signs test data: {X_test_vital.shape}")
@@ -220,7 +222,8 @@ for epoch in range(1, 101):
     if val_loss < best_val_loss:
         best_val_loss = val_loss
         patience_counter = 0
-        torch.save(fusion_model.state_dict(), 'logs/stacking_fusion_model.pt')
+        model_save_path = os.path.join(script_dir, "..", "logs", "models", "stacking_fusion_model.pt")
+        torch.save(fusion_model.state_dict(), model_save_path)
     else:
         patience_counter += 1
         if patience_counter >= 15:

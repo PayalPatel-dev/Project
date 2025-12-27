@@ -13,7 +13,8 @@ print("="*70 + "\n")
 # Test 1: mimic_iv.db
 print("[1] Testing mimic_iv.db...")
 try:
-    conn = sqlite3.connect('mimic_iv.db')
+    mimic_iv_path = os.path.join(os.path.dirname(__file__), "..", "data", "mimic_iv.db")
+    conn = sqlite3.connect(mimic_iv_path)
     cursor = conn.cursor()
     
     cursor.execute('SELECT COUNT(*) FROM chartevents')
@@ -37,7 +38,8 @@ except Exception as e:
 # Test 2: mimic_notes_complete_records.db
 print("[2] Testing mimic_notes_complete_records.db...")
 try:
-    conn = sqlite3.connect('mimic_notes_complete_records.db')
+    notes_path = os.path.join(os.path.dirname(__file__), "..", "data", "mimic_notes_complete_records.db")
+    conn = sqlite3.connect(notes_path)
     cursor = conn.cursor()
     
     cursor.execute('SELECT COUNT(*) FROM discharge')
@@ -57,8 +59,8 @@ except Exception as e:
 # Test 3: Find a sample admission with data
 print("[3] Finding sample admission with vitals + notes...")
 try:
-    notes_conn = sqlite3.connect('mimic_notes_complete_records.db')
-    mimic_conn = sqlite3.connect('mimic_iv.db')
+    notes_conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), "..", "data", "mimic_notes_complete_records.db"))
+    mimic_conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), "..", "data", "mimic_iv.db"))
     
     # Get discharge hadm_ids
     discharge_hadm = pd.read_sql_query('SELECT DISTINCT hadm_id FROM discharge', notes_conn)

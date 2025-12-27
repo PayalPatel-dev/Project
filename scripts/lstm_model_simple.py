@@ -114,7 +114,8 @@ for epoch in range(1, epochs + 1):
     if val_loss < best_val_loss:
         best_val_loss = val_loss
         patience_counter = 0
-        torch.save(model.state_dict(), 'best_model_simple.pt')
+        model_path = os.path.join(os.path.dirname(__file__), "..", "logs", "models", "best_model_simple.pt")
+        torch.save(model.state_dict(), model_path)
     else:
         patience_counter += 1
         if patience_counter >= patience:
@@ -128,7 +129,8 @@ print("\n" + "="*70)
 print("4️⃣ Evaluating on test set...")
 print("="*70)
 
-model.load_state_dict(torch.load('best_model_simple.pt'))
+model_path = os.path.join(os.path.dirname(__file__), "..", "logs", "models", "best_model_simple.pt")
+model.load_state_dict(torch.load(model_path))
 model.eval()
 
 with torch.no_grad():

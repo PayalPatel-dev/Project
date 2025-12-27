@@ -23,8 +23,9 @@ print("="*80)
 print("\n1️⃣ DOWNLOADING DATASET FROM HUGGING FACE...")
 print("   This may take 5-10 minutes on first run...")
 
-embeddings_file = os.path.join('logs', 'clinical_embeddings.npy')
-multimodal_file = os.path.join('logs', 'multimodal_data.npz')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+embeddings_file = os.path.join(script_dir, "..", "logs", "data", "clinical_embeddings.npy")
+multimodal_file = os.path.join(script_dir, "..", "logs", "data", "multimodal_data.npz")
 
 # Skip download if files already exist AND have all required keys
 if os.path.exists(embeddings_file) and os.path.exists(multimodal_file):
@@ -58,12 +59,13 @@ except Exception as e:
 
 # Save raw dataset
 print("\n2️⃣ SAVING RAW DATASET TO PARQUET...")
-os.makedirs('logs', exist_ok=True)
+logs_data_dir = os.path.join(script_dir, "..", "logs", "data")
+os.makedirs(logs_data_dir, exist_ok=True)
 try:
-    output_file = os.path.join('logs', 'clinical_notes_raw.parquet')
+    output_file = os.path.join(logs_data_dir, 'clinical_notes_raw.parquet')
     df.to_parquet(output_file, index=False)
     file_size = os.path.getsize(output_file) / (1024**3)
-    print(f"   ✓ Saved to: logs/clinical_notes_raw.parquet ({file_size:.1f} GB)")
+    print(f"   ✓ Saved to: logs/data/clinical_notes_raw.parquet ({file_size:.1f} GB)")
 except Exception as e:
     print(f"   ❌ Error saving parquet: {e}")
 
@@ -177,9 +179,9 @@ for idx, note in enumerate(tqdm(df['note'].values, desc="   Extracting features"
 clinical_features = pd.DataFrame(features_list)
 print(f"   ✓ Extracted features for {len(df):,} notes")
 
-features_file = os.path.join('logs', 'clinical_features.csv')
+features_file = os.path.join(logs_data_dir, 'clinical_features.csv')
 clinical_features.to_csv(features_file, index=False)
-print(f"   ✓ Saved to: logs/clinical_features.csv")
+print(f"   ✓ Saved to: logs/data/clinical_features.csv")
 
 # STEP 3: GENERATE TEXT EMBEDDINGS
 print("\n4️⃣ GENERATING TEXT EMBEDDINGS FROM CLINICAL NOTES...")
@@ -222,15 +224,15 @@ for idx in tqdm(range(len(sentences_list)), desc="   Processing"):
 embeddings = np.array(embeddings)
 print(f"\n   ✓ Generated embeddings: shape {embeddings.shape}")
 
-embeddings_file = os.path.join('logs', 'clinical_embeddings.npy')
+embeddings_file = os.path.join(logs_data_dir, 'clinical_embeddings.npy')
 np.save(embeddings_file, embeddings)
-print(f"   ✓ Saved to: logs/clinical_embeddings.npy")
+print(f"   ✓ Saved to: logs/data/clinical_embeddings.npy")
 
 # STEP 4: CREATE MULTI-MODAL DATASET
 print("\n5️⃣ CREATING MULTI-MODAL DATASET...")
 
 try:
-    vital_data = np.load(os.path.join('logs', 'processed_data.npz'))
+    vital_data = np.load(os.path.join(logs_data_dir, 'processed_data.npz'))
     X_vital_train = vital_data['X_train']
     X_vital_val = vital_data['X_val']
     X_vital_test = vital_data['X_test']
@@ -292,7 +294,7 @@ if total_vital_samples > 0 and len(embeddings) >= total_vital_samples:
     print(f"      to match vital signs data proportions. This simulates augmented")
     print(f"      clinical context for each patient trajectory.")
     
-    multimodal_file = os.path.join('logs', 'multimodal_data.npz')
+    multimodal_file = os.path.join(logs_data_dir, 'multimodal_data.npz')
     np.savez_compressed(
         multimodal_file,
         X_vital_train=X_vital_train,

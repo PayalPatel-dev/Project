@@ -34,17 +34,17 @@ env/
 *~
 .DS_Store
 
-# Generated Data & Models
+# Generated Data (EXCLUDE: Keep trained models for CodeSpaces!)
 *.npz
 *.npy
-*.pt
 *.parquet
 processed_data.npz
-best_model_simple.pt
 clinical_embeddings.npy
 clinical_notes_raw.parquet
 multimodal_data.npz
-best_multimodal_model.pt
+
+# IMPORTANT: Do NOT ignore .pt files - they are pre-trained models needed for CodeSpaces!
+# .pt files in logs/models/ are tracked in Git and reused to avoid retraining
 
 # Logs & Outputs
 logs/
@@ -83,4 +83,7 @@ Thumbs.db
 .env.local
 secrets.json
 test/config.py
+
+# Test Reports (JSON outputs)
+test/**/*.json
 test/*.json

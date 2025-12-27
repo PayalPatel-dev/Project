@@ -242,7 +242,10 @@ def test_data_loading(hadm_id, data_loader):
 if __name__ == "__main__":
     # Initialize data loader
     print("[INIT] Connecting to databases...")
-    data_loader = MIMICDataLoader('mimic_iv.db', 'mimic_notes_complete_records.db')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    mimic_iv_path = os.path.join(script_dir, "..", "data", "mimic_iv.db")
+    notes_path = os.path.join(script_dir, "..", "data", "mimic_notes_complete_records.db")
+    data_loader = MIMICDataLoader(mimic_iv_path, notes_path)
     
     # Find test admissions
     print("[DISCOVERY] Finding admissions with vitals and notes...")

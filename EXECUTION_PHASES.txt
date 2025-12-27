@@ -1,0 +1,33 @@
+BITS PROJECT - EXECUTION PHASES
+================================
+
+DATA SOURCES (Pre-collected)
+├── data/mimic_iv.db (vital signs)
+└── data/mimic_notes_complete_records.db (clinical notes)
+
+PHASE 1: DATA PREPARATION
+├── scripts/download_and_prepare_clinical_notes.py
+│   Output: logs/data/clinical_embeddings.npy
+├── scripts/check_vital_availability.py
+│   Output: Data quality report
+Estimated Time: 10-15 minutes
+
+PHASE 2: MODEL TRAINING
+├── scripts/lstm_model_simple.py
+│   Output: logs/models/best_model_simple.pt (LSTM)
+├── scripts/clinical_note_classifier.py
+│   Output: logs/models/best_clinical_classifier.pt (Clinical)
+├── scripts/fusion_model.py
+│   Output: logs/models/best_multimodal_model.pt (Fusion)
+Estimated Time: 30-45 minutes
+
+PHASE 3: TESTING & VALIDATION
+├── test/test_with_real_mimic_data.py
+│   Output: test/test_results/multimodal_predictions/ (123 admissions)
+├── test/validate_predictions.py
+│   Output: test/test_results/validation_reports/
+Estimated Time: 5-10 minutes
+
+TOTAL RUNTIME: ~1-1.5 hours
+
+Use run_pipeline.py to execute phases interactively.

@@ -9,7 +9,7 @@ from pathlib import Path
 
 def load_predictions_summary():
     """Load the summary predictions file"""
-    summary_path = Path("test_results") / "real_data_predictions_summary.json"
+    summary_path = Path("test_results") / "multimodal_predictions" / "real_data_predictions_summary.json"
     if not summary_path.exists():
         print(f"[ERROR] {summary_path} not found")
         return None

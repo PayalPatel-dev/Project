@@ -436,7 +436,7 @@ if __name__ == "__main__":
     
     # Get script directory and construct paths relative to it
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    data_path = os.path.join(script_dir, "..", "processed_data.npz")
+    data_path = os.path.join(script_dir, "..", "logs", "data", "processed_data.npz")
     
     # Load real test data instead of synthetic
     test_data = np.load(data_path)

@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, classification_report
-
+import os
 # ============================================================================
 # Model Architecture
 # ============================================================================
@@ -73,7 +73,9 @@ print("="*70)
 print("TRAINING LSTM ON ACTUAL DATASET")
 print("="*70)
 
-data = np.load("../processed_data.npz")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(script_dir, "..", "logs", "data", "processed_data.npz")
+data = np.load(data_path)
 
 X_train = data['X_train']  # (868, 24, 6)
 y_train = data['y_train']  # (868,)
@@ -188,7 +190,9 @@ for epoch in range(num_epochs):
         best_epoch = epoch
         patience_counter = 0
         # Save best model
-        torch.save(model.state_dict(), "../logs/working_lstm_model.pt")
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        model_save_path = os.path.join(script_dir, "..", "logs", "models", "working_lstm_model.pt")
+        torch.save(model.state_dict(), model_save_path)
     else:
         patience_counter += 1
     
@@ -205,7 +209,7 @@ for epoch in range(num_epochs):
 print("\n[TESTING]")
 print("-"*70)
 
-model.load_state_dict(torch.load("../logs/working_lstm_model.pt", map_location=device, weights_only=False))
+model.load_state_dict(torch.load(os.path.join(script_dir, "..", "logs", "models", "working_lstm_model.pt"), map_location=device, weights_only=False))
 model.eval()
 
 test_predictions = []

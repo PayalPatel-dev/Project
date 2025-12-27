@@ -40,10 +40,10 @@ python scripts/fusion_model.py
 import torch
 import numpy as np
 
-# Load models
-lstm_model = torch.load('logs/best_model_simple.pt')
-clinical_model = torch.load('logs/best_clinical_classifier.pt')
-fusion_model = torch.load('logs/stacking_fusion_model.pt')  # BEST
+# Load models (from logs/models/)
+lstm_model = torch.load('logs/models/best_model_simple.pt')
+clinical_model = torch.load('logs/models/best_clinical_classifier.pt')
+fusion_model = torch.load('logs/models/stacking_fusion_model.pt')  # BEST
 
 # Get predictions
 vital_input = torch.randn(1, 24, 6)  # 1 sample: 24 timesteps, 6 features

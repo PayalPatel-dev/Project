@@ -24,8 +24,11 @@ for a in without_notes[:10]:
 print('\n=== VERIFYING AGAINST NOTES DATABASE ===')
 import sqlite3
 import pandas as pd
+import os
 
-notes_conn = sqlite3.connect(r'd:\BITS_Project\mimic_notes_complete_records.db')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+notes_db_path = os.path.join(script_dir, "..", "data", "mimic_notes_complete_records.db")
+notes_conn = sqlite3.connect(notes_db_path)
 
 print('\nAll unique hadm_ids in discharge table:')
 all_notes_hadm = pd.read_sql_query(

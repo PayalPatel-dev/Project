@@ -3,8 +3,11 @@ Check which vital attributes are available in MIMIC-IV
 """
 import sqlite3
 import pandas as pd
+import os
 
-conn = sqlite3.connect('mimic_iv.db')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(script_dir, "..", "data", "mimic_iv.db")
+conn = sqlite3.connect(db_path)
 
 vitals_to_check = {
     'Heart Rate': [220045],
