@@ -5,6 +5,7 @@ A comprehensive machine learning pipeline for analyzing MIMIC-IV clinical data u
 ## 📋 Overview
 
 This project combines:
+
 - **Structured Data**: Vital signs and clinical measurements from MIMIC-IV database
 - **Unstructured Data**: Clinical notes processed with NLP techniques
 - **Multiple Models**: LSTM, Clinical Note Classifier, and Stacking Fusion Model
@@ -13,6 +14,7 @@ This project combines:
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Python 3.8+
 - Virtual environment
 - Git (with models tracked via Git)
@@ -40,6 +42,7 @@ pip install -r requirements.txt
 ### Prepare Databases
 
 Ensure required databases exist in `data/` folder:
+
 ```bash
 data/
 ├── mimic_iv.db                      # Structured vital signs
@@ -55,8 +58,9 @@ python run_pipeline.py
 ```
 
 **Menu Options:**
+
 - **Phase 1**: Data Preparation (10-15 min)
-- **Phase 2**: Model Training (30-45 min) *[AUTO-SKIPPED if models exist]*
+- **Phase 2**: Model Training (30-45 min) _[AUTO-SKIPPED if models exist]_
 - **Phase 3**: Testing & Validation (5-10 min)
 - **Phase 4**: Load Pre-trained Models (<1 min)
 - **Option A**: Run ALL phases (1→2→3)
@@ -101,12 +105,14 @@ BITS_Project/
 ## 🎯 Pipeline Phases
 
 ### Phase 1: Data Preparation
+
 - Downloads and prepares clinical notes from MIMIC-IV
 - Checks vital sign availability
 - Preprocesses structured data
 - **Time**: 10-15 minutes
 
 ### Phase 2: Model Training
+
 - Trains LSTM model on vital signs
 - Trains Clinical Note Classifier
 - Trains Fusion Model combining both modalities
@@ -114,12 +120,14 @@ BITS_Project/
 - **Note**: ⏭️ **AUTO-SKIPPED** if pre-trained models exist
 
 ### Phase 3: Testing & Validation
+
 - Validates models on test data
 - Generates predictions
 - Creates performance reports
 - **Time**: 5-10 minutes
 
 ### Phase 4: Load Pre-trained Models
+
 - Verifies all trained models are available
 - Shows model sizes and status
 - Perfect for CodeSpaces environments
@@ -129,14 +137,15 @@ BITS_Project/
 
 All trained models are stored in `logs/models/` and **tracked in Git**:
 
-| Model | Path | Size |
-|-------|------|------|
-| LSTM | `logs/models/best_model_simple.pt` | ~5-10 MB |
+| Model               | Path                                      | Size     |
+| ------------------- | ----------------------------------------- | -------- |
+| LSTM                | `logs/models/best_model_simple.pt`        | ~5-10 MB |
 | Clinical Classifier | `logs/models/best_clinical_classifier.pt` | ~5-10 MB |
-| Stacking Fusion | `logs/models/stacking_fusion_model.pt` | ~3-5 MB |
-| Working LSTM | `logs/models/working_lstm_model.pt` | ~5-10 MB |
+| Stacking Fusion     | `logs/models/stacking_fusion_model.pt`    | ~3-5 MB  |
+| Working LSTM        | `logs/models/working_lstm_model.pt`       | ~5-10 MB |
 
 ### Why Models Are in Git?
+
 - **CodeSpaces**: Automatically downloads trained models—no retraining needed
 - **Faster Development**: Use pre-trained models immediately for inference
 - **Reproducibility**: Exact same models across all environments
@@ -151,6 +160,7 @@ All trained models are stored in `logs/models/` and **tracked in Git**:
 4. Models load automatically—**no training needed** ✓
 
 ### Performance in CodeSpaces
+
 - Phase 1 (Data Prep): 10-15 min
 - Phase 2 (Training): **SKIPPED** (models included)
 - Phase 3 (Testing): 5-10 min
@@ -159,16 +169,19 @@ All trained models are stored in `logs/models/` and **tracked in Git**:
 ## 📊 Models & Architecture
 
 ### LSTM Model (`best_model_simple.pt`)
+
 - Input: Vital signs sequences
 - Output: Clinical outcome predictions
 - Architecture: 2-layer LSTM with attention
 
 ### Clinical Note Classifier (`best_clinical_classifier.pt`)
+
 - Input: Processed clinical notes (TF-IDF/embeddings)
 - Output: Note-based outcome predictions
 - Architecture: Dense neural network
 
 ### Fusion Model (`stacking_fusion_model.pt`)
+
 - Combines predictions from LSTM + Clinical Classifier
 - Meta-learner stacking approach
 - Improved prediction accuracy
@@ -176,6 +189,7 @@ All trained models are stored in `logs/models/` and **tracked in Git**:
 ## 📦 Requirements
 
 See `requirements.txt` for full dependency list. Key packages:
+
 - `torch` - Deep learning
 - `pandas` - Data manipulation
 - `scikit-learn` - ML utilities
@@ -183,6 +197,7 @@ See `requirements.txt` for full dependency list. Key packages:
 - `sqlalchemy` - Database queries
 
 Install with:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -190,6 +205,7 @@ pip install -r requirements.txt
 ## 📝 Configuration
 
 Edit `config/config.yaml` to customize:
+
 - Database paths
 - Model hyperparameters
 - Training settings
@@ -198,6 +214,7 @@ Edit `config/config.yaml` to customize:
 ## 📊 Results & Reports
 
 After running pipelines, check:
+
 - **Predictions**: `logs/predictions/`
 - **Performance Metrics**: `logs/predictions/*.json`
 - **Analysis Reports**: `reports/`
@@ -205,18 +222,23 @@ After running pipelines, check:
 ## 🐛 Troubleshooting
 
 ### Missing Databases
+
 ```
 ERROR: Missing required databases
 ```
+
 **Solution**: Ensure `data/mimic_iv.db` and `data/mimic_notes_complete_records.db` exist
 
 ### Models Not Found in Phase 2
+
 ```
 Missing trained models
 ```
+
 **Solution**: Run Phase 2 to train, or ensure models exist in `logs/models/`
 
 ### Virtual Environment Issues
+
 ```bash
 # Recreate venv
 rm -r venv
@@ -256,12 +278,14 @@ View results in logs/predictions/
 ## 👨‍💻 Development
 
 ### Adding New Models
+
 1. Create training script in `scripts/`
 2. Update PHASES in `run_pipeline.py`
 3. Add model to `TRAINED_MODELS` dict
 4. Models auto-tracked in Git
 
 ### Testing Changes
+
 ```bash
 # Run single phase
 python run_pipeline.py
