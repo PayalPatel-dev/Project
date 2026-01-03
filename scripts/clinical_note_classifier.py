@@ -198,6 +198,7 @@ for epoch in range(1, EPOCHS + 1):
         patience_counter = 0
         # Save best model in logs/models directory
         model_path = os.path.join(os.path.dirname(__file__), "..", "logs", "models", "best_clinical_classifier.pt")
+        os.makedirs(os.path.dirname(model_path), exist_ok=True)
         torch.save(model.state_dict(), model_path)
         print(f"   [BEST] Model saved!")
     else:

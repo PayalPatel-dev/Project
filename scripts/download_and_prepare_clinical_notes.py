@@ -19,9 +19,22 @@ print("\n" + "="*80)
 print("CLINICAL NOTES DATASET - DOWNLOAD & PREPARE")
 print("="*80)
 
-# STEP 1: DOWNLOAD DATASET
-print("\n1️⃣ DOWNLOADING DATASET FROM HUGGING FACE...")
-print("   This may take 5-10 minutes on first run...")
+# Check if embeddings already exist  
+script_dir = os.path.dirname(os.path.abspath(__file__))
+embeddings_file = os.path.join(script_dir, "..", "logs", "data", "clinical_embeddings.npy")
+multimodal_file = os.path.join(script_dir, "..", "logs", "data", "multimodal_data.npz")
+logs_data_dir = os.path.join(script_dir, "..", "logs", "data")
+
+if os.path.exists(embeddings_file) and not os.path.exists(multimodal_file):
+    print("\n✓ Pre-computed embeddings found!")
+    print("   Skipping dataset download and embedding generation (saves 40-60 minutes)")
+    print("   Proceeding directly to multimodal alignment...")
+    embeddings = np.load(embeddings_file)
+    print(f"   ✓ Loaded {len(embeddings):,} embeddings")
+else:
+    # STEP 1: DOWNLOAD DATASET
+    print("\n1️⃣ DOWNLOADING DATASET FROM HUGGING FACE...")
+    print("   This may take 5-10 minutes on first run...")
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 embeddings_file = os.path.join(script_dir, "..", "logs", "data", "clinical_embeddings.npy")

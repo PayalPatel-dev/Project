@@ -57,9 +57,8 @@ multimodal_results.json
 # Generated CSV (keep only source data)
 clinical_features.csv
 
-# Database
-*.db
-mimic_iv.db
+
+
 
 # OS Files
 .DS_Store
@@ -87,3 +86,9 @@ test/config.py
 # Test Reports (JSON outputs)
 test/**/*.json
 test/*.json
+
+# ======================
+# Databases (LOCAL ONLY)
+# ======================
+/data/*.db
+

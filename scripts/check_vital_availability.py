@@ -6,7 +6,7 @@ import pandas as pd
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-db_path = os.path.join(script_dir, "..", "data", "mimic_iv.db")
+db_path = os.path.join(script_dir, "..", "logs", "data", "mimic_iv.db")
 conn = sqlite3.connect(db_path)
 
 vitals_to_check = {

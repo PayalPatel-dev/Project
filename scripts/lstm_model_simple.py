@@ -15,9 +15,9 @@ import os
 print("\n" + "="*70)
 print("LSTM DETERIORATION PREDICTION - SIMPLIFIED TRAINING")
 print("="*70)
-print("\n1️⃣ Loading preprocessed data...")
+print("\n[1] Loading preprocessed data...")
 
-data = np.load('processed_data.npz')
+data = np.load('logs/data/processed_data.npz')
 X_train = torch.tensor(data['X_train'], dtype=torch.float32)
 y_train = torch.tensor(data['y_train'], dtype=torch.float32)
 X_val = torch.tensor(data['X_val'], dtype=torch.float32)
@@ -49,7 +49,7 @@ class SimpleLSTM(nn.Module):
         return out
 
 # Initialize model
-print("\n2️⃣ Initializing model...")
+print("\n[2] Initializing model...")
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"  Device: {device}")
 
@@ -71,7 +71,7 @@ train_loader = DataLoader(
     shuffle=True
 )
 
-print("\n3️⃣ Training model...")
+print("\n[3] Training model...")
 print("="*70)
 
 model.train()
@@ -115,18 +115,19 @@ for epoch in range(1, epochs + 1):
         best_val_loss = val_loss
         patience_counter = 0
         model_path = os.path.join(os.path.dirname(__file__), "..", "logs", "models", "best_model_simple.pt")
+        os.makedirs(os.path.dirname(model_path), exist_ok=True)
         torch.save(model.state_dict(), model_path)
     else:
         patience_counter += 1
         if patience_counter >= patience:
-            print(f"\n✓ Early stopping at epoch {epoch}")
+            print(f"\n[OK] Early stopping at epoch {epoch}")
             break
     
     model.train()
 
 # Load best model and evaluate
 print("\n" + "="*70)
-print("4️⃣ Evaluating on test set...")
+print("[4] Evaluating on test set...")
 print("="*70)
 
 model_path = os.path.join(os.path.dirname(__file__), "..", "logs", "models", "best_model_simple.pt")
@@ -149,7 +150,7 @@ with torch.no_grad():
     specificity = tn / (tn + fp)
     f1 = 2 * tp / (2 * tp + fp + fn)
     
-    print(f"\n📊 Test Set Results:")
+    print(f"\n[TEST] Results:")
     print(f"  AUROC: {test_auroc:.4f}")
     print(f"  Sensitivity (TPR): {sensitivity:.4f}")
     print(f"  Specificity (TNR): {specificity:.4f}")
@@ -158,5 +159,5 @@ with torch.no_grad():
     print(f"  TN={tn}, FP={fp}")
     print(f"  FN={fn}, TP={tp}")
 
-print("\n✓ Training complete!")
+print("\n[OK] Training complete!")
 print("="*70)

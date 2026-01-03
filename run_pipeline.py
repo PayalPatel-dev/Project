@@ -94,8 +94,8 @@ def print_menu():
 def validate_databases():
     """Check if required databases exist"""
     required = [
-        "data/mimic_iv.db",
-        "data/mimic_notes_complete_records.db"
+        "logs/data/mimic_iv.db",
+        "logs/data/mimic_notes_complete_records.db"
     ]
     missing = [f for f in required if not Path(f).exists()]
     

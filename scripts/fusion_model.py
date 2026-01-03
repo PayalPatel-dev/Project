@@ -223,6 +223,7 @@ for epoch in range(1, 101):
         best_val_loss = val_loss
         patience_counter = 0
         model_save_path = os.path.join(script_dir, "..", "logs", "models", "stacking_fusion_model.pt")
+        os.makedirs(os.path.dirname(model_save_path), exist_ok=True)
         torch.save(fusion_model.state_dict(), model_save_path)
     else:
         patience_counter += 1
@@ -231,7 +232,8 @@ for epoch in range(1, 101):
             break
 
 # Load best stacking model and evaluate
-fusion_model.load_state_dict(torch.load('logs/stacking_fusion_model.pt', weights_only=False))
+model_load_path = os.path.join(script_dir, "..", "logs", "models", "stacking_fusion_model.pt")
+fusion_model.load_state_dict(torch.load(model_load_path, weights_only=False))
 fusion_model.eval()
 
 with torch.no_grad():

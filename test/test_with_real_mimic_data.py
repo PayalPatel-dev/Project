@@ -440,7 +440,7 @@ def predict_with_real_data(hadm_id, data_loader, device=None):
     print(f"         Sparsity: {sparsity:.1%}\n")
     
     if sparsity > 0.7:
-        print(f"[WARN] ⚠️  Vital data is very sparse ({sparsity:.1%} missing)")
+        print(f"[WARN] Vital data is very sparse ({sparsity:.1%} missing)")
         print(f"        LSTM predictions may be less reliable\n")
     
     # -------- STEP 2: LOAD CLINICAL NOTES --------
